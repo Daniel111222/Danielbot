@@ -238,5 +238,3 @@ client.on("guildMemberAdd", member => {
     channel.send(`welkom bij de server ${member}`);
 
 })
-
-bot.login(process.env.token);
