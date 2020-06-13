@@ -209,7 +209,7 @@ client.on("message", async message =>{
 
 });
 
-bot.login(procces.env.token);
+Bot.login(procces.env.token);
 
 async function promptMessage(message, author, time, reactions){
 
