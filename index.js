@@ -209,8 +209,6 @@ client.on("message", async message =>{
 
 });
 
-bot.login(process.env.token); 
-
 async function promptMessage(message, author, time, reactions){
 
     time *= 1000;
