@@ -209,6 +209,7 @@ client.on("message", async message =>{
 
 });
 
+bot.login(process.env.token); 
 
 async function promptMessage(message, author, time, reactions){
 
@@ -238,5 +239,3 @@ client.on("guildMemberAdd", member => {
     channel.send(`welkom bij de server ${member}`);
 
 })
-
-bot.login(process.env.token);
