@@ -48,7 +48,7 @@ client.on("message", async message =>{
 
     var messageArray = message.content.split(" ");
 
-    var commands = messageArray[0];
+    var command = messageArray[0];
     
     if (commands === `${prefix}hallo`) {
         return message.channel.send("hallo!");
