@@ -1,6 +1,33 @@
 const discord = require("discord.js");  
 const botConfig = require("./botconfig.json");
 
+const fs = require("fs");
+
+const bot = new discord.client();
+bot.commands = new discord.Collection();
+
+fs.readdir("./commands/" , (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFilles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsfilles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsfiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`De files ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    }) 
+
+});
+
 const client = new discord.Client(); 
 client.login(process.env.token);
 
@@ -21,11 +48,14 @@ client.on("message", async message =>{
 
     var messageArray = message.content.split(" ");
 
-    var command = messageArray[0];
+    var commands = messageArray[0];
     
-    if (command === `${prefix}hallo`) {
+    if (commands === `${prefix}hallo`) {
         return message.channel.send("hallo!");
     }
+
+    var commands = bot.commands.get(command.slice(prefix.length));
+
 
     if (command === `${prefix}info`) {
 
