@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
 
     });
 
-    if(ticketBestaat) return;
+    if(ticketBestaan) return;
 
     var embed = new discord.MessageEmbed
         .setTitle("Hoi " + message.author.username)
