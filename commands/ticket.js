@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
 
     if(ticketBestaat) return;
 
-    var embed = new discord.MessageEmbed()
+    var embed = new discord.MessageEmbed
         .setTitle("Hoi " + message.author.username)
         .setFooter("Support kanaal wordt aangemaakt");
     
