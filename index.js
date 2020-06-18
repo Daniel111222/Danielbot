@@ -10,14 +10,14 @@ fs.readdir("./commands/" , (err, files) => {
 
     if (err) console.log(err);
 
-    var jsFilles = files.filter(f => f.split(".").pop() === "js");
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
 
-    if (jsFilles.length <= 0) {
+    if (jsFiles.length <= 0) {
         console.log("Kon geen files vinden");
         return;
     }
 
-    jsFilles.forEach((f, i) => {
+    jsFiles.forEach((f, i) => {
 
         var fileGet = require(`./commands/${f}`);
         console.log(`De files ${f} is geladen`);
