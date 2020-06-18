@@ -50,7 +50,7 @@ module.exports.run = async (client, message, args) => {
 
                     var embedParent = new.discord.MessageEmbed()
                         .setTitle(`Hoi ${message.author.username}`)
-                        .setDescription("Stel hier je vragen");
+                        .setDescription("Zet hier je bericht / vraag    ");
 
                     settedParent.send(embedParent);
                        
