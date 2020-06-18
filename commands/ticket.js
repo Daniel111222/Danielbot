@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args) => {
                         ADD_REACTIONS: true                        
                     });                              
 
-                    var embedParent = new.discord.MessageEmbed()
+                    var embedParent = new discord.MessageEmbed()
                         .setTitle(`Hoi ${message.author.username}`)
                         .setDescription("Zet hier je bericht / vraag");
 
