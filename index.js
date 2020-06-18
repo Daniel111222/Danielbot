@@ -54,7 +54,7 @@ client.on("message", async message =>{
         return message.channel.send("hallo!");
     }
 
-    var commands = bot.commands.get(command.slice(prefix.length));
+    var commands = bot.commands.get(commands.slice(prefix.length));
 
 
     if (command === `${prefix}info`) {
