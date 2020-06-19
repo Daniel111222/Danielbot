@@ -219,7 +219,7 @@ client.on("message", async message => {
 
         var ticketBestaan = false;
 
-        message.guild.channels.cahche.forEach(channel => {
+        message.guild.channels.cache.forEach(channel => {
 
             if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
                 ticketBestaan = true;
