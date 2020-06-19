@@ -3,31 +3,6 @@ const botConfig = require("./botconfig.json");
 
 const fs = require("fs");
 
-const bot = new discord.Client();
-bot.commands = new discord.Collection();
-
-fs.readdir("./commands/" , (err, files) => {
-
-    if (err) console.log(err);
-
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
-
-    if (jsFiles.length <= 0) {
-        console.log("Kon geen files vinden");
-        return;
-    }
-
-    jsFiles.forEach((f, i) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`De files ${f} is geladen`);
-
-        bot.commands.set(fileGet.help.name, fileGet);
-
-    }) 
-
-});
-
 const client = new discord.Client(); 
 client.login(process.env.token);
 
@@ -237,40 +212,9 @@ client.on("message", async message =>{
     
     }
 
-});
+    if (command === `${prefix}ticket`) {
 
-async function promptMessage(message, author, time, reactions){
-
-    time *= 1000;
-
-    for(const reaction of reactions){
-        await message.react(reaction)
-    }
-
-    var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
-
-    return message.awaitReactions(filter, {max:1, time: time}).then(collected => collected.first() && collected.first().emoji.name);
-
-}
-
-client.on("guildMemberAdd", member => {
-    var role = member.guild.roles.cache.get('721118805107146762');
-
-    if(!role) return;
-
-    member.roles.add(role);
-
-    var channel = member.guild.channels.cache.get('718765797048320041');
-
-    if (!channel) return;
-
-    channel.send(`welkom bij de server ${member}`);
-
-})
-
-module.exports.run = async (client, message, args) => {
-
-    const categoryID = "723177277189259344";
+const categoryID = "723177277189259344";
 
     var userName = message.author.username;
     var userDiscriminator = message.author.discriminator;
@@ -329,10 +273,36 @@ module.exports.run = async (client, message, args) => {
         }
     ).catch(err => {
         message.channel.send("Er is iets misgelopen");
-    });
+    }); 
+}
+
+});
+
+async function promptMessage(message, author, time, reactions){
+
+    time *= 1000;
+
+    for(const reaction of reactions){
+        await message.react(reaction)
+    }
+
+    var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
+
+    return message.awaitReactions(filter, {max:1, time: time}).then(collected => collected.first() && collected.first().emoji.name);
 
 }
 
-module.exports.help = {
-    name: "ticket"
-}       
+client.on("guildMemberAdd", member => {
+    var role = member.guild.roles.cache.get('721118805107146762');
+
+    if(!role) return;
+
+    member.roles.add(role);
+
+    var channel = member.guild.channels.cache.get('718765797048320041');
+
+    if (!channel) return;
+
+    channel.send(`welkom bij de server ${member}`);
+
+})
