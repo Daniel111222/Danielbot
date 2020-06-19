@@ -1,71 +1,71 @@
-const discord = require("discord.js");  
+const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
 const fs = require("fs");
 
-const client = new discord.Client(); 
+const client = new discord.Client();
 client.login(process.env.token);
 
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
-    client.user.setActivity("Testing", {type: "PLAYING"});
+    client.user.setActivity("Testing", { type: "PLAYING" });
 
-}); 
+});
 
-client.on("message", async message =>{
+client.on("message", async message => {
 
-    if(message.author.bot) return;
+    if (message.author.bot) return;
 
-    if(message.channel.type == "dm") return;
+    if (message.channel.type == "dm") return;
 
     var prefix = botConfig.prefix;
 
     var messageArray = message.content.split(" ");
 
     var command = messageArray[0];
-    
-    if (commands === `${prefix}hallo`) {
+
+    var commands = command.slice(prefix.length);
+
+
+    if (commands === 'hallo') {
         return message.channel.send("hallo!");
     }
 
-    var commands = client.commands.get(commands.slice(prefix.length));
-
-
-    if (command === `${prefix}info`) {
+    if (command === 'info') {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("info bot")
             .setDescription("zet een beschrijving")
             .setColor("#0099ff")
             .addFields(
-                {name: "test", value: "TEST "},
-                {name: "test", value: "TEST "},
-                {name: "test", value: "TEST "}
+                { name: "test", value: "TEST " },
+                { name: "test", value: "TEST " },
+                { name: "test", value: "TEST " }
             )
             .addField("Bot naam", client.user.username);
 
         return message.channel.send(botEmbed);
     }
-   
-    if (command === `${prefix}serverinfo`) {
+
+    if (command === 'serverinfo') {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("serverinfo")
             .setDescription("Info")
             .setColor("#0099ff")
             .addFields(
-                {name: "bot naam", value:client.user.username},
-                {name: "Je bent de server gejoined op", value: message.member.joinedAt},
-                {name: "Totaal members", value: message.guild.memberCount}
+                { name: "bot naam", value: client.user.username },
+                { name: "Je bent de server gejoined op", value: message.member.joinedAt },
+                { name: "Totaal members", value: message.guild.memberCount }
             )
             .addField("Bot naam", client.user.username);
 
         return message.channel.send(botEmbed);
     }
 
-    if (command === `${prefix}kick`) {
-    
+    if (command === 'kick') {
+
         // !kick @spelerNaam redenen hier
 
         var args = message.content.slice(prefix.length).split(/ +/);
@@ -82,13 +82,13 @@ client.on("message", async message =>{
 
         var reason = args.slice(2).join(" ");
 
-        if (!kickUser) return message.reply("gebruiker niet gevonden"); 
+        if (!kickUser) return message.reply("gebruiker niet gevonden");
 
         var embedPrompt = new discord.MessageEmbed()
             .setColor("GREEN")
             .setTitle("Gelieve binnen 30 sec te reageren")
             .setDescription(`Wil je ${kickUser} kicken?`);
-            
+
         var embed = new discord.MessageEmbed()
             .setColor("#ff0000")
             .setFooter(message.member.displayName)
@@ -119,9 +119,9 @@ client.on("message", async message =>{
 
             // }
 
-            message.channel.awaitMessages(m => m.author.id === message.author.id, {max: 1, time: 30000}).then(collected =>{
+            message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(collected => {
 
-                if(collected.first().content.toLowerCase() == 'ja'){
+                if (collected.first().content.toLowerCase() == 'ja') {
 
                     kickUser.kick(reason).catch(err => {
                         if (err) return message.reply("Er is iets foutgelopen");
@@ -134,13 +134,13 @@ client.on("message", async message =>{
             });
 
         })
-    
+
     }
 
 
 
-    if (command === `${prefix}ban`) {
-    
+    if (command === 'ban') {
+
         // !ban @spelerNaam redenen hier
 
         var args = message.content.slice(prefix.length).split(/ +/);
@@ -157,13 +157,13 @@ client.on("message", async message =>{
 
         var reason = args.slice(2).join(" ");
 
-        if (!banUser) return message.reply("gebruiker niet gevonden"); 
+        if (!banUser) return message.reply("gebruiker niet gevonden");
 
         var embedPrompt = new discord.MessageEmbed()
             .setColor("GREEN")
             .setTitle("Gelieve binnen 30 sec te reageren")
             .setDescription(`Wil je ${banUser} bannen?`);
-            
+
         var embed = new discord.MessageEmbed()
             .setColor("#ff0000")
             .setFooter(message.member.displayName)
@@ -194,9 +194,9 @@ client.on("message", async message =>{
 
             // }
 
-            message.channel.awaitMessages(m => m.author.id === message.author.id, {max: 1, time: 30000}).then(collected =>{
+            message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(collected => {
 
-                if(collected.first().content.toLowerCase() == 'ja'){
+                if (collected.first().content.toLowerCase() == 'ja') {
 
                     banUser.ban(reason).catch(err => {
                         if (err) return message.reply("Er is iets foutgelopen");
@@ -209,93 +209,93 @@ client.on("message", async message =>{
             });
 
         })
-    
+
     }
 
-    if (command === `${prefix}ticket`) {
+    if (command === 'ticket') {
 
-const categoryID = "723177277189259344";
+        const categoryID = "723177277189259344";
 
-    var userName = message.author.username;
-    var userDiscriminator = message.author.discriminator;
+        var userName = message.author.username;
+        var userDiscriminator = message.author.discriminator;
 
-    var ticketBestaan = false;
+        var ticketBestaan = false;
 
-    message.guild.channels.cahche.forEach(channel => {
-        
-        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
-            ticketBestaan = true;
+        message.guild.channels.cahche.forEach(channel => {
 
-            message.reply("Je hebt al een ticket aangemaakt");
+            if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+                ticketBestaan = true;
 
-            return;
-        }
+                message.reply("Je hebt al een ticket aangemaakt");
 
-    });
+                return;
+            }
 
-    if(ticketBestaan) return;
+        });
 
-    var embed = new discord.MessageEmbed
-        .setTitle("Hoi " + message.author.username)
-        .setFooter("Support kanaal wordt aangemaakt");
-    
-    message.channel.send(embed);
+        if (ticketBestaan) return;
 
-    message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, { type: 'text' }).then(
-        (createdChannel) => {
-            createdChannel.setParent(categoryID).then(
-                (settedParent) => {
+        var embed = new discord.MessageEmbed
+            .setTitle("Hoi " + message.author.username)
+            .setFooter("Support kanaal wordt aangemaakt");
 
-                    settedParent.updateOverwrite(message,guild.roles.cache.find(x => x.name === '@everyone'), {
-                        SEND_MESSAGES: false,
-                        VIEW_CHANNELS: false
-                    });
+        message.channel.send(embed);
 
-                    settedParent.updateOverwrite(message.author.id, {
-                        CREATE_INSTANT_INVITE: false,
-                        READ_MESSAGES: true,
-                        SEND_MESSAGES: false,
-                        ATTACH_FILES: true,
-                        CONNECT: true,
-                        ADD_REACTIONS: true                        
-                    });                              
+        message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, { type: 'text' }).then(
+            (createdChannel) => {
+                createdChannel.setParent(categoryID).then(
+                    (settedParent) => {
 
-                    var embedParent = new discord.MessageEmbed()
-                        .setTitle(`Hoi ${message.author.username}`)
-                        .setDescription("Zet hier je bericht / vraag");
+                        settedParent.updateOverwrite(message, guild.roles.cache.find(x => x.name === '@everyone'), {
+                            SEND_MESSAGES: false,
+                            VIEW_CHANNELS: false
+                        });
 
-                    settedParent.send(embedParent);
-                       
-                }
-            ).catch(err => {
-                message.channel.send("Er is iets misgelopen");
-            });
-        }
-    ).catch(err => {
-        message.channel.send("Er is iets misgelopen");
-    }); 
-}
+                        settedParent.updateOverwrite(message.author.id, {
+                            CREATE_INSTANT_INVITE: false,
+                            READ_MESSAGES: true,
+                            SEND_MESSAGES: false,
+                            ATTACH_FILES: true,
+                            CONNECT: true,
+                            ADD_REACTIONS: true
+                        });
+
+                        var embedParent = new discord.MessageEmbed()
+                            .setTitle(`Hoi ${message.author.username}`)
+                            .setDescription("Zet hier je bericht / vraag");
+
+                        settedParent.send(embedParent);
+
+                    }
+                ).catch(err => {
+                    message.channel.send("Er is iets misgelopen");
+                });
+            }
+        ).catch(err => {
+            message.channel.send("Er is iets misgelopen");
+        });
+    }
 
 });
 
-async function promptMessage(message, author, time, reactions){
+async function promptMessage(message, author, time, reactions) {
 
     time *= 1000;
 
-    for(const reaction of reactions){
+    for (const reaction of reactions) {
         await message.react(reaction)
     }
 
     var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
 
-    return message.awaitReactions(filter, {max:1, time: time}).then(collected => collected.first() && collected.first().emoji.name);
+    return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
 
 }
 
 client.on("guildMemberAdd", member => {
     var role = member.guild.roles.cache.get('721118805107146762');
 
-    if(!role) return;
+    if (!role) return;
 
     member.roles.add(role);
 
