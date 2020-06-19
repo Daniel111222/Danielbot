@@ -206,7 +206,7 @@ client.on("message", async message => {
         message.guild.channels.cache.forEach(channel => {
             if (channel.name == "ticket-" + userName.toLowerCase()) {
                 ticketExcists = true;
-                message.channel.send("You already have an open ticket.");
+                message.channel.send("Je hebt al een ticket openstaan.");
                 return;
             }
         });
@@ -229,14 +229,14 @@ client.on("message", async message => {
                 createdChannel.send({
                     embed: {
                         title: `Hello ${message.author.username}`,
-                        description: "Staff is on it's way, wait patiently.",
+                        description: "We helpen je zo snel mogelijk!",
                         color: "BLUE"
                     }
                 });
                 message.channel.send({
                     embed: {
                         title: `Hello ${message.author.username}!`,
-                        description: `Your ticket has been created! \n\n Ticket: ${createdChannel}`,
+                        description: `Je ticket is aangemaakt! \n\n Ticket: ${createdChannel}`,
                         color: "GREEN"
                     }
                 });
