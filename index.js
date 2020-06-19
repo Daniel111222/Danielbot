@@ -221,7 +221,9 @@ client.on("message", async message => {
 
 
     if (commands === 'ticket') {
+
         const categoryId = "723177277189259344";
+        
         var userName = message.author.username;
 
         var ticketExcists = false;
