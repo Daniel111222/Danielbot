@@ -1,8 +1,6 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const fs = require("fs");
-
 const client = new discord.Client();
 client.login(process.env.token);
 
@@ -278,19 +276,19 @@ client.on("message", async message => {
 
 });
 
-async function promptMessage(message, author, time, reactions) {
+// async function promptMessage(message, author, time, reactions) {
 
-    time *= 1000;
+//     time *= 1000;
 
-    for (const reaction of reactions) {
-        await message.react(reaction)
-    }
+//     for (const reaction of reactions) {
+//         await message.react(reaction)
+//     }
 
-    var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
+//     var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
 
-    return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+//     return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
 
-}
+// }
 
 client.on("guildMemberAdd", member => {
     var role = member.guild.roles.cache.get('721118805107146762');
@@ -305,4 +303,4 @@ client.on("guildMemberAdd", member => {
 
     channel.send(`welkom bij de server ${member}`);
 
-})
+});
