@@ -268,8 +268,6 @@ client.on("guildMemberAdd", member => {
 
 })
 
-const discord = require("discord.js");
-
 module.exports.run = async (client, message, args) => {
 
     const categoryID = "723177277189259344";
