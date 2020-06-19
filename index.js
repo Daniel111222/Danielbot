@@ -228,14 +228,14 @@ client.on("message", async message => {
                 });
                 createdChannel.send({
                     embed: {
-                        title: `Hello ${message.author.username}`,
+                        title: `Hallo ${message.author.username}`,
                         description: "We helpen je zo snel mogelijk!",
                         color: "BLUE"
                     }
                 });
                 message.channel.send({
                     embed: {
-                        title: `Hello ${message.author.username}!`,
+                        title: `Hallo ${message.author.username}!`,
                         description: `Je ticket is aangemaakt! \n\n Ticket: ${createdChannel}`,
                         color: "GREEN"
                     }
