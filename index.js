@@ -223,7 +223,7 @@ client.on("message", async message => {
                     ATTACH_FILES: true,
                     CONNECT: true,
                     READ_MESSAGE_HISTORY: true,
-                    VIEW_CHANNEL: false,
+                    VIEW_CHANNEL: true,
                     ADD_REACTIONS: true
                 });
                 createdChannel.send({
