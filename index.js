@@ -199,31 +199,10 @@ client.on("message", async message => {
         })
     }
 
-// module.exports.run = async (bot, message, args) => {
-
-//     const categoryId = "723177277189259344";
-
-//     if (message.channel.parentID == categoryId) {
-
-//         message.channel.delete();
-
-//     } else {
-
-//             message.channel.send("Gelieve dit commando in een ticket kanaal te doen.");
-
-//     }
-    
-// }
-
-// module.exports.help = {
-//     name: "close"
-// }
-
-
     if (commands === 'ticket') {
 
         const categoryId = "723177277189259344";
-        
+    
         var userName = message.author.username;
 
         var ticketExcists = false;
@@ -237,7 +216,10 @@ client.on("message", async message => {
         if (ticketExcists) return;
         message.guild.channels.create("ticket-" + userName.toLowerCase(), { type: 'text' }).then(
             (createdChannel) => {
-                createdChannel.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
+                createdChannel.setparent(categoryID).then(
+                    (settedParent) => {
+
+                settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
                     SEND_MESSAGES: false,
                     VIEW_CHANNEL: false
                 });
@@ -269,6 +251,7 @@ client.on("message", async message => {
             message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
         });
     }
+
 });
 
 // async function promptMessage(message, author, time, reactions) {
