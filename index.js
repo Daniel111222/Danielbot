@@ -233,7 +233,7 @@ client.on("message", async message => {
 
         if (ticketBestaan) return;
 
-        var embed = new discord.MessageEmbed
+        var embed = new discord.MessageEmbed()
             .setTitle("Hoi " + message.author.username)
             .setFooter("Support kanaal wordt aangemaakt");
 
