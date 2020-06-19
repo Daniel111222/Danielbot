@@ -144,19 +144,14 @@ client.on("message", async message => {
         var args = message.content.slice(prefix.length).split(/ +/);
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("sorry jij kan dit niet gebruiken");
-
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("geen perms");
-
         if (!args[1]) return message.reply("geen gebruiker opgegeven");
-
         if (!args[2]) return message.reply("geen redenen opgegeven");
 
         var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
-
         var reason = args.slice(2).join(" ");
 
         if (!banUser) return message.reply("gebruiker niet gevonden");
-
         var embedPrompt = new discord.MessageEmbed()
             .setColor("GREEN")
             .setTitle("Gelieve binnen 30 sec te reageren")
@@ -193,87 +188,63 @@ client.on("message", async message => {
             // }
 
             message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(collected => {
-
                 if (collected.first().content.toLowerCase() == 'ja') {
-
                     banUser.ban(reason).catch(err => {
                         if (err) return message.reply("Er is iets foutgelopen");
                     });
-
                 } else {
                     message.reply("Geannuleerd");
                 }
-
             });
-
         })
-
     }
 
     if (commands === 'ticket') {
-
-        const categoryID = "723177277189259344";
-
         var userName = message.author.username;
-        var userDiscriminator = message.author.discriminator;
 
-        var ticketBestaan = false;
-
+        var ticketExcists = false;
         message.guild.channels.cache.forEach(channel => {
-
-            if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
-                ticketBestaan = true;
-
-                message.reply("Je hebt al een ticket aangemaakt");
-
+            if (channel.name == "ticket-" + userName.toLowerCase()) {
+                ticketExcists = true;
+                message.channel.send("You already have an open ticket.");
                 return;
             }
-
         });
-
-        if (ticketBestaan) return;
-
-        var embed = new discord.MessageEmbed()
-            .setTitle("Hoi " + message.author.username)
-            .setFooter("Support kanaal wordt aangemaakt");
-
-        message.channel.send(embed);
-
-        message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, { type: 'text' }).then(
+        if (ticketExcists) return;
+        message.guild.channels.create("ticket-" + userName.toLowerCase(), { type: 'text' }).then(
             (createdChannel) => {
-                createdChannel.setParent(categoryID).then(
-                    (settedParent) => {
-
-                        settedParent.updateOverwrite(message, guild.roles.cache.find(x => x.name === '@everyone'), {
-                            SEND_MESSAGES: false,
-                            VIEW_CHANNELS: false
-                        });
-
-                        settedParent.updateOverwrite(message.author.id, {
-                            CREATE_INSTANT_INVITE: false,
-                            READ_MESSAGES: true,
-                            SEND_MESSAGES: false,
-                            ATTACH_FILES: true,
-                            CONNECT: true,
-                            ADD_REACTIONS: true
-                        });
-
-                        var embedParent = new discord.MessageEmbed()
-                            .setTitle(`Hoi ${message.author.username}`)
-                            .setDescription("Zet hier je bericht / vraag");
-
-                        settedParent.send(embedParent);
-
+                createdChannel.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
+                    SEND_MESSAGES: false,
+                    VIEW_CHANNEL: false
+                });
+                createdChannel.updateOverwrite(message.author.id, {
+                    CREATE_INSTANT_INVITE: false,
+                    SEND_MESSAGES: true,
+                    ATTACH_FILES: true,
+                    CONNECT: true,
+                    READ_MESSAGE_HISTORY: true,
+                    VIEW_CHANNEL: false,
+                    ADD_REACTIONS: true
+                });
+                createdChannel.send({
+                    embed: {
+                        title: `Hello ${message.author.username}`,
+                        description: "Staff is on it's way, wait patiently.",
+                        color: "BLUE"
                     }
-                ).catch(err => {
-                    message.channel.send("Er is iets misgelopen");
+                });
+                message.channel.send({
+                    embed: {
+                        title: `Hello ${message.author.username}!`,
+                        description: `Your ticket has been created! \n\n Ticket: ${createdChannel}`,
+                        color: "GREEN"
+                    }
                 });
             }
         ).catch(err => {
-            message.channel.send("Er is iets misgelopen");
+            message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
         });
     }
-
 });
 
 // async function promptMessage(message, author, time, reactions) {
