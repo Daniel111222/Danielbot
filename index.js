@@ -32,7 +32,7 @@ client.on("message", async message => {
         return message.channel.send("hallo!");
     }
 
-    if (command === 'info') {
+    if (commands === 'info') {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("info bot")
@@ -48,7 +48,7 @@ client.on("message", async message => {
         return message.channel.send(botEmbed);
     }
 
-    if (command === 'serverinfo') {
+    if (commands === 'serverinfo') {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("serverinfo")
@@ -64,7 +64,7 @@ client.on("message", async message => {
         return message.channel.send(botEmbed);
     }
 
-    if (command === 'kick') {
+    if (commands === 'kick') {
 
         // !kick @spelerNaam redenen hier
 
@@ -139,7 +139,7 @@ client.on("message", async message => {
 
 
 
-    if (command === 'ban') {
+    if (commands === 'ban') {
 
         // !ban @spelerNaam redenen hier
 
@@ -212,7 +212,7 @@ client.on("message", async message => {
 
     }
 
-    if (command === 'ticket') {
+    if (commands === 'ticket') {
 
         const categoryID = "723177277189259344";
 
