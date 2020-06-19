@@ -216,10 +216,7 @@ client.on("message", async message => {
         if (ticketExcists) return;
         message.guild.channels.create("ticket-" + userName.toLowerCase(), { type: 'text' }).then(
             (createdChannel) => {
-                createdChannel.setparent(categoryID).then(
-                    (settedParent) => {
-
-                settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
+                createdChannel.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
                     SEND_MESSAGES: false,
                     VIEW_CHANNEL: false
                 });
