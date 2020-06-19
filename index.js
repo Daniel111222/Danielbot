@@ -199,6 +199,27 @@ client.on("message", async message => {
         })
     }
 
+// module.exports.run = async (bot, message, args) => {
+
+//     const categoryId = "723177277189259344";
+
+//     if (message.channel.parentID == categoryId) {
+
+//         message.channel.delete();
+
+//     } else {
+
+//             message.channel.send("Gelieve dit commando in een ticket kanaal te doen.");
+
+//     }
+    
+// }
+
+// module.exports.help = {
+//     name: "close"
+// }
+
+
     if (commands === 'ticket') {
         var userName = message.author.username;
 
