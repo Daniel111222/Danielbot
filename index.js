@@ -243,6 +243,9 @@ client.on("message", async message => {
                         color: "GREEN"
                     }
                 });
+                setTimeout(function(){ 
+                    message.guild.channels.cache.find(c => c.name == `ticket-${userName.toLowerCase()}`).setParent(categoryId)
+                    }, 1500);
             }
         ).catch(err => {
             message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
