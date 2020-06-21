@@ -253,14 +253,10 @@ client.on("message", async message => {
     }
 
 });
-
-const discord = require("discord.js");
- 
-module.exports.run = async (bot, message, args) => {
- 
-    const categoryId = "723177277189259344";
  
     if (message.channel.parentID == categoryId) {
+
+        const categoryId = "723177277189259344";
  
         message.channel.delete();
  
@@ -268,7 +264,6 @@ module.exports.run = async (bot, message, args) => {
  
         message.channel.send("Gelieve dit commando in een ticket kanaal te doen.");
  
-    }
  
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.channel.name)
