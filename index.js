@@ -261,8 +261,35 @@ client.on("message", async message => {
         });
     }
 
-});
+    if (commands === 'close') {
+
+        const categoryID = "723177277189259344";
+        
+            if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Jij kan deze ticket niet sluiten!");
+        
+            if (message.channel.parentID == categoryID) {
+                message.channel.delete();
+        
+                var closeTicketEmbed = new discord.MessageEmbed()
+                    .setTitle("Ticket | " + message.channel.name)
+                    .setDescription("Het ticket is gemarkeerd als **compleet**!")
+                    .setTimestamp();
+        
+                var ticketChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
+                if (!ticketChannel) return message.reply(`Het kanaal ${ticketChannel} is niet gevonden!`);
+        
+                ticketChannel.send(closeTicketEmbed);
+        
+            } else {
+        
+                message.reply("Je kunt deze command niet buiten een ticket gebruiken!");
+        
+            }
+    }
     
+});
+
+   
     
 
 // async function promptMessage(message, author, time, reactions) {
