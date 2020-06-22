@@ -40,11 +40,19 @@ client.on("message", async message => {
 
             var logChannel = message.guild.channels.cache.get("718769530050183198")
 
-            logChannel.send(`${message.author.username} schelde met ${message.content}.`)
+            logChannel.send({embed: {
+                title: `${message.author} (${message.author.id}) gebruikte een scheldwoord.`,
+                description: `${message.author.username} stuurde tekst waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel.name}`,
+                color: "RED", 
+                timestamp: new Date(), 
+                footer: {
+                    text: message.author.username
+                }
+              }
+            });
 
         }
     }
-
 
 
     if (!message.content.startsWith(prefix)) return;
