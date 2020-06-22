@@ -26,246 +26,26 @@ client.on("message", async message => {
     var commands = command.slice(prefix.length);
 
 
-    if (message.content.toLowerCase().split(" ").includes("kanker")) {
+    var swearWords = JSON.parse(fs.readFileSync("./swearWords.json"));
 
-        message.delete()
+    var msg = message.content.toLocaleLowerCase().split(" ");
+    for (let i = 0; i < swearWords["swearwords"].length; i++) {
+        if (msg.includes(swearWords["swearwords"][i])) {
+            message.delete();
+            message.reply(`Your message has been deleted because it included one or multiple swearwords.`).then(msg => msg.delete({ timeout: 5000 })).catch(err => {
+                message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
+            });
 
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+            var logChannel = message.guild.channels.cache.get("718769530050183198")
 
-    }
+            logChannel.send(`${message.author.name} schelde met ${message.content}.`)
 
-    if (message.content.toLowerCase().split(" ").includes("hoer")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("slet")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("hitler")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("fack")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("fuck")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("wtf")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("autist")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("homo")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("klootzak")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("nazi")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("klote")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("ebola")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("lijer")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("maloot")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("wijf")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("teef")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("tyfus")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("eikel")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("pedo")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("superfanboygamerNL30")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("flikker")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("lul")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("mof")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("kk")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("mongool")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("neuk")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("anaal")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
-    }
-
-    if (message.content.toLowerCase().split(" ").includes("jood")) {
-
-        message.delete()
-
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-
+        }
     }
 
 
 
     if (!message.content.startsWith(prefix)) return;
-
-    var logChannel = message.guild.channels.cache.get("718769530050183198")
-
-    logChannel.send(`${message.author} schelde met {message.content}.`)
-
 
     if (commands === 'hallo') {
         return message.channel.send("hallo!");
