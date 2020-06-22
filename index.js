@@ -27,6 +27,16 @@ client.on("message", async message => {
 
     })
 
+    if(message.content.includes("fack")){
+
+        message.delete()
+        
+        message.channel.send("Dat woord is niet toegestaan!")
+        
+        }
+
+    if(!message.content.startsWith(prefix)) return;
+
 
     if (commands === 'hallo') {
         return message.channel.send("hallo!");
