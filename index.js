@@ -33,8 +33,8 @@ client.on("message", async message => {
     if (commands === 'info') {
 
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("info bot")
-            .setDescription("zet een beschrijving")
+            .setTitle("Info Daniël bot")
+            .setDescription("Een paar vragen:")
             .setColor("#0099ff")
             .addFields(
                 { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
