@@ -265,7 +265,7 @@ client.on("message", async message => {
 
         const categoryID = "723177277189259344";
         
-            if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Jij kan deze ticket niet sluiten!");
+            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("Jij kan deze ticket niet sluiten!");
         
             if (message.channel.parentID == categoryID) {
                 message.channel.delete();
