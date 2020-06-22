@@ -374,11 +374,6 @@ client.on("message", async message => {
         }
     }
 
-
-
-
-
-
     // async function promptMessage(message, author, time, reactions) {
 
     //     time *= 1000;
