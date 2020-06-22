@@ -33,7 +33,7 @@ client.on("message", async message => {
     if (commands === 'info') {
 
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("Info Daniël bot")
+            .setTitle("Info bot")
             .setDescription("Een paar vragen:")
             .setColor("#0099ff")
             .addFields(
