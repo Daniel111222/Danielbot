@@ -26,14 +26,6 @@ client.on("message", async message => {
     var commands = command.slice(prefix.length);
 
 
-    if(message.content.toLowerCase().includes("mongool")){
-
-        message.delete()
-        
-        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-        
-        }
-
         if(message.content.toLowerCase().includes("kanker")){
 
             message.delete()
@@ -41,14 +33,6 @@ client.on("message", async message => {
             message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
             
             }
-
-            if(message.content.toLowerCase().includes("kkr")){
-
-                message.delete()
-                
-                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-                
-                }
 
                 if(message.content.toLowerCase().includes("hoer")){
 
@@ -265,14 +249,6 @@ client.on("message", async message => {
                                                                                                                             message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
                                                                                                                             
                                                                                                                             }
-
-                                                                                                                            if(message.content.toLowerCase().includes("Anaal")){
-
-                                                                                                                                message.delete()
-                                                                                                                                
-                                                                                                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
-                                                                                                                                
-                                                                                                                                }
 
                                                                                                                                 if(message.content.toLowerCase().includes("jood")){
 
