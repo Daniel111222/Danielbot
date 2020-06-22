@@ -39,7 +39,7 @@ client.on("message", async message => {
             .addFields(
                 { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
                 { name: "Wat kan de bot allemaal?", value: "Ik streef ernaar met hulp van de helpers, dat de bot alles kan." },
-                { name: "Hoe maak ik een ticket aan?", value: "Door in #cmds !ticket **of** !new te schrijven." }
+                { name: "Hoe maak ik een ticket aan?", value: "Door in #cmds !ticket of !new te schrijven." }
             )
             .addField("Bot naam", client.user.username);
 
