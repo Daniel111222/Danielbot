@@ -4,6 +4,8 @@ const botConfig = require("./botconfig.json");
 const client = new discord.Client();
 client.login(process.env.token);
 
+const fs = require("fs");
+
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
