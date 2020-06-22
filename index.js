@@ -250,7 +250,7 @@ client.on("message", async message => {
                                                                                                                     
                                                                                                                     }
 
-                                                                                                                    if(message.content.toLowerCase().includes("neuker")){
+                                                                                                                    if(message.content.toLowerCase().includes("neuk")){
 
                                                                                                                         message.delete()
                                                                                                                         
