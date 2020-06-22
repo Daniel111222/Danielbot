@@ -66,7 +66,7 @@ client.on("message", async message => {
                         
                         }
 
-                        if(message.content.toLowerCase().includes("fack")){
+                        if(message.content.toLowerCase().includes("hitler")){
 
                             message.delete()
                             
@@ -137,6 +137,94 @@ client.on("message", async message => {
                                                             message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
                                                             
                                                             }
+
+                                                            if(message.content.toLowerCase().includes("ebola")){
+
+                                                                message.delete()
+                                                                
+                                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                
+                                                                }
+
+                                                                if(message.content.toLowerCase().includes("lijer")){
+
+                                                                    message.delete()
+                                                                    
+                                                                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                    
+                                                                    }
+
+                                                                    if(message.content.toLowerCase().includes("maloot")){
+
+                                                                        message.delete()
+                                                                        
+                                                                        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                        
+                                                                        }
+
+                                                                        if(message.content.toLowerCase().includes("wijf")){
+
+                                                                            message.delete()
+                                                                            
+                                                                            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                            
+                                                                            }
+
+                                                                            if(message.content.toLowerCase().includes("teef")){
+
+                                                                                message.delete()
+                                                                                
+                                                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                
+                                                                                }
+
+                                                                                if(message.content.toLowerCase().includes("tyfus")){
+
+                                                                                    message.delete()
+                                                                                    
+                                                                                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                    
+                                                                                    }
+
+                                                                                    if(message.content.toLowerCase().includes("eikel")){
+
+                                                                                        message.delete()
+                                                                                        
+                                                                                        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                        
+                                                                                        }
+
+                                                                                        if(message.content.toLowerCase().includes("pedo")){
+
+                                                                                            message.delete()
+                                                                                            
+                                                                                            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                            
+                                                                                            }
+
+                                                                                            if(message.content.toLowerCase().includes("superfanboygamerNL30")){
+
+                                                                                                message.delete()
+                                                                                                
+                                                                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                
+                                                                                                }
+
+                                                                                                if(message.content.toLowerCase().includes("flikker")){
+
+                                                                                                    message.delete()
+                                                                                                    
+                                                                                                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                    
+                                                                                                    }
+
+                                                                                                    if(message.content.toLowerCase().includes("lul")){
+
+                                                                                                        message.delete()
+                                                                                                        
+                                                                                                        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                        
+                                                                                                        }
 
 
 
