@@ -26,13 +26,95 @@ client.on("message", async message => {
     var commands = command.slice(prefix.length);
 
 
-    if(message.content.includes("fack")){
+    if(message.content.toLowerCase().includes("mongool")){
 
         message.delete()
         
-        message.channel.send("Dat woord is niet toegestaan!")
+        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
         
         }
+
+        if(message.content.toLowerCase().includes("kanker")){
+
+            message.delete()
+            
+            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+            
+            }
+
+            if(message.content.toLowerCase().includes("kkr")){
+
+                message.delete()
+                
+                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                
+                }
+
+                if(message.content.toLowerCase().includes("hoer")){
+
+                    message.delete()
+                    
+                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                    
+                    }
+
+                    if(message.content.toLowerCase().includes("slet")){
+
+                        message.delete()
+                        
+                        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                        
+                        }
+
+                        if(message.content.toLowerCase().includes("fack")){
+
+                            message.delete()
+                            
+                            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                            
+                            }
+
+                            if(message.content.toLowerCase().includes("fack")){
+
+                                message.delete()
+                                
+                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                
+                                }
+
+                                if(message.content.toLowerCase().includes("fuck")){
+
+                                    message.delete()
+                                    
+                                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                    
+                                    }
+
+                                    if(message.content.toLowerCase().includes("wtf")){
+
+                                        message.delete()
+                                        
+                                        message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                        
+                                        }
+
+                                        if(message.content.toLowerCase().includes("autist")){
+
+                                            message.delete()
+                                            
+                                            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                            
+                                            }
+
+                                            if(message.content.toLowerCase().includes("homo")){
+
+                                                message.delete()
+                                                
+                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                
+                                                }
+
+
 
     if(!message.content.startsWith(prefix)) return;
 
