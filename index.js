@@ -272,7 +272,7 @@ client.on("message", async message => {
         
                 var closeTicketEmbed = new discord.MessageEmbed()
                     .setTitle("Ticket | " + message.channel.name)
-                    .setDescription("Het ticket is gemarkeerd als **compleet**!")
+                    .setDescription("De ticket is afgesloten, bedankt voor je hulp!")
                     .setTimestamp();
         
                 var ticketChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
