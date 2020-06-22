@@ -25,6 +25,8 @@ client.on("message", async message => {
 
     var commands = command.slice(prefix.length);
 
+    })
+
 
     if (commands === 'hallo') {
         return message.channel.send("hallo!");
@@ -370,14 +372,10 @@ client.on("message", async message => {
     
       if (commands) commands.run(bot, message, args);
       
-      if(command === 'fack'){
-        message.delete()
-        message.reply('Hey! Dat woord is verboden!');
       
     }  
-
-})   
-});
+  
+)
 
    
     
@@ -409,4 +407,5 @@ client.on("guildMemberAdd", member => {
 
     channel.send(`welkom bij de server ${member}`);
 
-});
+}
+);
