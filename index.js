@@ -130,7 +130,7 @@ client.on("message", async message => {
                                                         
                                                         }
 
-                                                        if(message.content.toLowerCase().includes("hono")){
+                                                        if(message.content.toLowerCase().includes("klote")){
 
                                                             message.delete()
                                                             
