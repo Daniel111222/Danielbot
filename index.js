@@ -56,7 +56,7 @@ client.on("message", async message => {
                 { name: "Bot naam", value: client.user.username },
                 { name: "Je bent de server gejoined op", value: message.member.joinedAt },
                 { name: "Totaal members", value: message.guild.memberCount },
-                { name: "Aantal servers", value: bot.guilds.cache.size }
+                { name: "Aantal servers", value: client.guilds.cache.size }
             )
             .addField("Bot naam", client.user.username);
 
