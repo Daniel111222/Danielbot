@@ -40,7 +40,7 @@ client.on("message", async message => {
 
             var logChannel = message.guild.channels.cache.get("718769530050183198")
 
-            logChannel.send(`${message.author.name} schelde met ${message.content}.`)
+            logChannel.send(`${message.author.displayName} schelde met ${message.content}.`)
 
         }
     }
