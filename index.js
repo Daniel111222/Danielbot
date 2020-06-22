@@ -258,6 +258,22 @@ client.on("message", async message => {
                                                                                                                         
                                                                                                                         }
 
+                                                                                                                        if(message.content.toLowerCase().includes("anaal")){
+
+                                                                                                                            message.delete()
+                                                                                                                            
+                                                                                                                            message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                                            
+                                                                                                                            }
+
+                                                                                                                            if(message.content.toLowerCase().includes("Anaal")){
+
+                                                                                                                                message.delete()
+                                                                                                                                
+                                                                                                                                message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                                                
+                                                                                                                                }
+
 
 
     if(!message.content.startsWith(prefix)) return;
