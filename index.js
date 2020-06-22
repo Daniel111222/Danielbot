@@ -218,7 +218,7 @@ client.on("message", async message => {
                                                                                                             
                                                                                                             }
 
-                                                                                                            if(message.content.toLowerCase().includes("kk")){
+                                                                                                            if(message.content.toLowerCase().includes("kkr")){
 
                                                                                                                 message.delete()
                                                                                                                 
@@ -226,7 +226,7 @@ client.on("message", async message => {
                                                                                                                 
                                                                                                                 }
 
-                                                                                                                if(message.content.toLowerCase().includes("mogool")){
+                                                                                                                if(message.content.toLowerCase().includes("mongool")){
 
                                                                                                                     message.delete()
                                                                                                                     
