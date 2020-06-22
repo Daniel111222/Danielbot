@@ -25,7 +25,6 @@ client.on("message", async message => {
 
     var commands = command.slice(prefix.length);
 
-    });
 
     if(message.content.includes("fack")){
 
@@ -397,3 +396,4 @@ client.on("guildMemberAdd", member => {
 
 }
 );
+});
