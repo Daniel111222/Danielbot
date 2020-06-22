@@ -236,7 +236,7 @@ client.on("message", async message => {
                     READ_MESSAGE_HISTORY: true,
                     VIEW_CHANNEL: true,
                     ADD_REACTIONS: true,
-                    MANAGE_CHANNEL: true
+                    MANAGE_CHANNELS: true
                 });
                 createdChannel.send({
                     embed: {
