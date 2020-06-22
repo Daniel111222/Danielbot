@@ -350,6 +350,29 @@ client.on("message", async message => {
         
             }
     }
+
+      if (message.author.bot) return;
+    
+      if (message.channel.type === "dm") return;
+    
+      var prefix = config.prefix;
+    
+      var MessageAray = message.content.split(" ");
+    
+      var command = MessageAray[0];
+    
+      var args = MessageAray.slice(1);
+    
+      var commands = bot.commands.get(command.slice(prefix.length));
+    
+      if (commands) commands.run(bot, message, args);
+      
+      if(command === 'fack'){
+        message.delete()
+        message.reply('Hey! Dat woord is verboden!');
+      
+    }  
+
     
 });
 
