@@ -41,7 +41,7 @@ client.on("message", async message => {
             var logChannel = message.guild.channels.cache.get("718769530050183198")
 
             logChannel.send({embed: {
-                title: `${message.author.username} ($_{message.author.id}_) gebruikte een scheldwoord.`,
+                title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
                 description: `${message.author} stuurde tekst waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
                 color: "RED", 
                 timestamp: new Date(), 
