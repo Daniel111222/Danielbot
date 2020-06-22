@@ -242,6 +242,14 @@ client.on("message", async message => {
                                                                                                                 
                                                                                                                 }
 
+                                                                                                                if(message.content.toLowerCase().includes("mogool")){
+
+                                                                                                                    message.delete()
+                                                                                                                    
+                                                                                                                    message.channel.send(`Hey ${message.author}, dat woord is hier niet toegestaan.`);
+                                                                                                                    
+                                                                                                                    }
+
 
 
     if(!message.content.startsWith(prefix)) return;
