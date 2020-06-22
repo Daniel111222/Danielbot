@@ -218,7 +218,7 @@ client.on("message", async message => {
                                                                                                             
                                                                                                             }
 
-                                                                                                            if(message.content.toLowerCase().includes("kkr")){
+                                                                                                            if(message.content.toLowerCase().includes("kk")){
 
                                                                                                                 message.delete()
                                                                                                                 
