@@ -108,10 +108,10 @@ client.on("message", async message => {
         message.delete();
         message.reply(`Je bericht is verwijdert, aangezien discord links verboden zijn.`).then(msg => msg.delete({ timeout: 5000 }))
             
-        }
-
         var staffChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
         if (!staffChannel) return message.reply(`Het kanaal ${staffChannel} is niet gevonden!`);
+
+    }
 
     if (!message.content.startsWith(prefix)) return;
 
