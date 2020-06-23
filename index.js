@@ -347,7 +347,7 @@ client.on("message", async message => {
 
         if (!channel) return;
 
-        channel.send(`Welkom bij de server ${member}`);
+        channel.send(`welkom bij de server ${member}`);
 
     }
     );
