@@ -92,7 +92,7 @@ client.on("message", async message => {
             logChannel.send({
                 embed: {
                     title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
-                    description: `${message.author} stuurde tekst, waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
+                    description: `${message.author} stuurde een tekst, waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
                     color: "RED",
                     timestamp: new Date(),
                     footer: {
@@ -115,7 +115,7 @@ client.on("message", async message => {
         staffChannel.send({
             embed: {
                 title: `${message.author.username} (_${message.author.id}_) gebruikte een link.`,
-                description: `${message.author} stuurde tekst, waar een link in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
+                description: `${message.author} stuurde een tekst, waar een link in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
                 color: "RED",
                 timestamp: new Date(),
                 footer: {
