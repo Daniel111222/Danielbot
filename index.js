@@ -55,6 +55,28 @@ client.on("message", async message => {
         }
     }
 
+    
+    client.on("guildMemberAdd", member => {
+        Code
+        })
+
+    client.on("guildMemberAdd", member => {
+        var role = member.guild.roles.cache.get('721118805107146762');
+    
+
+        if (!role) return;
+
+        member.roles.add(role);
+
+        var channel = member.guild.channels.cache.get('718765797048320041');
+
+        if (!channel) return;
+
+        channel.send(`Welkom bij de server ${member}!`);
+
+    }
+    );
+
 
     if (!message.content.startsWith(prefix)) return;
 
@@ -336,19 +358,4 @@ client.on("message", async message => {
 
     // }
 
-    client.on("guildMemberAdd", member => {
-        var role = member.guild.roles.cache.get('721118805107146762');
-
-        if (!role) return;
-
-        member.roles.add(role);
-
-        var channel = member.guild.channels.cache.get('718765797048320041');
-
-        if (!channel) return;
-
-        channel.send(`Welkom bij de server ${member}!`);
-
-    }
-    );
 });
