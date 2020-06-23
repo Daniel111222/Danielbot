@@ -232,7 +232,7 @@ client.on("message", async message => {
         })
     }
 
-    if (commands === 'ticket' || 'new') {
+    if (commands === 'ticket' || commands === 'new') {
 
         const categoryId = "723177277189259344";
 
