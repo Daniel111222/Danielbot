@@ -13,6 +13,55 @@ client.on("ready", async () => {
 
 });
 
+client.on("guildMemberAdd", member => {
+
+    var role = member.guild.roles.cache.get('721118805107146762');
+    if (!role) return;
+    member.roles.add(role);
+
+    var channel = member.guild.channels.cache.get('718765797048320041');
+    if (!channel) return;
+
+    channel.send({
+        embed: {
+            title: `WELKOM`,
+            description: `Welkom ${member.username}!\nWe hebben nu ${member.guild.memberCount} leden!`,
+            color: "GREEN",
+            timestamp: new Date(),
+            thumbnail: {
+                url: member.user.avatarURL({ dynamic: true }) ? member.user.avatarURL({ dynamic: true }) : null
+            },
+            footer: {
+                text: "WELKOM"
+            }
+        }
+    });
+
+});
+
+client.on("guildMemberRemove", member => {
+
+    var channel = member.guild.channels.cache.get('718765797048320041');
+    if (!channel) return;
+
+    channel.send({
+        embed: {
+            title: `TOT ZIENS`,
+            description: `Jammer dat je weggaat ${member.username}!\nWe hebben nu nog ${member.guild.memberCount} leden!`,
+            color: "RED",
+            timestamp: new Date(),
+            thumbnail: {
+                url: member.user.avatarURL({ dynamic: true }) ? member.user.avatarURL({ dynamic: true }) : null
+            },
+            footer: {
+                text: "TOT ZIENS"
+            }
+        }
+    });
+
+});
+
+
 client.on("message", async message => {
 
     if (message.author.bot) return;
@@ -54,28 +103,6 @@ client.on("message", async message => {
 
         }
     }
-
-    
-    client.on("guildMemberAdd", member => {
-        Code
-        })
-
-    client.on("guildMemberAdd", member => {
-        var role = member.guild.roles.cache.get('721118805107146762');
-    
-
-        if (!role) return;
-
-        member.roles.add(role);
-
-        var channel = member.guild.channels.cache.get('718765797048320041');
-
-        if (!channel) return;
-
-        channel.send(`Welkom bij de server ${member}!`);
-
-    }
-    );
 
 
     if (!message.content.startsWith(prefix)) return;
