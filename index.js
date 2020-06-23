@@ -104,6 +104,11 @@ client.on("message", async message => {
         }
     }
 
+    if(message.content.includes("discord.gg/")){
+        message.delete();
+        message.reply(`Je bericht is verwijdert, aangezien scheldwoorden verboden zijn.`).then(msg => msg.delete({ timeout: 5000 }))
+            
+        }
 
     if (!message.content.startsWith(prefix)) return;
 
