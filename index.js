@@ -25,7 +25,7 @@ client.on("guildMemberAdd", member => {
     channel.send({
         embed: {
             title: `WELKOM`,
-            description: `Welkom ${member.username}!\nWe hebben nu ${member.guild.memberCount} leden!`,
+            description: `Welkom ${member.user.username}!\nWe hebben nu ${member.guild.memberCount} leden!`,
             color: "GREEN",
             timestamp: new Date(),
             thumbnail: {
@@ -47,7 +47,7 @@ client.on("guildMemberRemove", member => {
     channel.send({
         embed: {
             title: `TOT ZIENS`,
-            description: `Jammer dat je weggaat ${member.username}!\nWe hebben nu nog ${member.guild.memberCount} leden!`,
+            description: `Jammer dat je weggaat ${member.user.username}!\nWe hebben nu nog ${member.guild.memberCount} leden!`,
             color: "RED",
             timestamp: new Date(),
             thumbnail: {
