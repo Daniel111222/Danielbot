@@ -25,7 +25,7 @@ client.on("guildMemberAdd", member => {
     channel.send({
         embed: {
             title: `WELKOM`,
-            description: `Welkom ${member.user.username}!\nWe hebben nu ${member.guild.memberCount} leden!`,
+            description: `Welkom **${member.user.username}**!\nWe hebben nu **${member.guild.memberCount}** leden!`,
             color: "GREEN",
             timestamp: new Date(),
             thumbnail: {
