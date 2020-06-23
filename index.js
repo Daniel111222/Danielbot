@@ -112,6 +112,7 @@ client.on("message", async message => {
 
         var staffChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
         if (!staffChannel) return message.reply(`Het kanaal ${staffChannel} is niet gevonden!`);
+        staffChannel.send("test")
 
     if (!message.content.startsWith(prefix)) return;
 
