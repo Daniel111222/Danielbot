@@ -40,15 +40,16 @@ client.on("message", async message => {
 
             var logChannel = message.guild.channels.cache.get("718769530050183198")
 
-            logChannel.send({embed: {
-                title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
-                description: `${message.author} stuurde tekst waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
-                color: "RED", 
-                timestamp: new Date(), 
-                footer: {
-                    text: message.author.username
+            logChannel.send({
+                embed: {
+                    title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
+                    description: `${message.author} stuurde tekst waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
+                    color: "RED",
+                    timestamp: new Date(),
+                    footer: {
+                        text: message.author.username
+                    }
                 }
-              }
             });
 
         }
@@ -248,49 +249,49 @@ client.on("message", async message => {
         if (ticketExcists) return;
         message.guild.channels.create("ticket-" + userName.toLowerCase(), { type: 'text' }).then(
             (createdChannel) => {
-                createdChannel.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
-                    SEND_MESSAGES: false,
-                    VIEW_CHANNEL: false
-                });
-                createdChannel.updateOverwrite(message.author.id, {
-                    CREATE_INSTANT_INVITE: false,
-                    SEND_MESSAGES: true,
-                    ATTACH_FILES: true,
-                    CONNECT: true,
-                    READ_MESSAGE_HISTORY: true,
-                    VIEW_CHANNEL: true,
-                    ADD_REACTIONS: true
-                });
-                createdChannel.updateOverwrite(message.guild.roles.cache.find(y => y.name === "support team"), {
-                    SEND_MESSAGES: true,
-                    ATTACH_FILES: true,
-                    CONNECT: true,
-                    READ_MESSAGE_HISTORY: true,
-                    VIEW_CHANNEL: true,
-                    ADD_REACTIONS: true,
-                    MANAGE_CHANNELS: true
-                });
-                createdChannel.send({
-                    embed: {
-                        title: `Hallo ${message.author.username}`,
-                        description: "We helpen je zo snel mogelijk!",
-                        color: "BLUE"
-                    }
-                });
-                message.channel.send({
-                    embed: {
-                        title: `Hallo ${message.author.username}!`,
-                        description: `Je ticket is aangemaakt! \n\n Ticket: ${createdChannel}`,
-                        color: "GREEN"
-                    }
-                });
-                setTimeout(function () {
-                    message.guild.channels.cache.find(c => c.name == `ticket-${userName.toLowerCase()}`).setParent(categoryId)
-                }, 1500);
-            }
-        ).catch(err => {
-            message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
-        });
+                createdChannel.setParent(categoryId).then(
+                    (settedParent) => {
+
+                        settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === "@everyone"), {
+                            SEND_MESSAGES: false,
+                            VIEW_CHANNEL: false
+                        });
+                        settedParent.updateOverwrite(message.author.id, {
+                            CREATE_INSTANT_INVITE: false,
+                            SEND_MESSAGES: true,
+                            ATTACH_FILES: true,
+                            CONNECT: true,
+                            READ_MESSAGE_HISTORY: true,
+                            VIEW_CHANNEL: true,
+                            ADD_REACTIONS: true
+                        });
+                        settedParent.updateOverwrite(message.guild.roles.cache.find(y => y.name === "support team"), {
+                            SEND_MESSAGES: true,
+                            ATTACH_FILES: true,
+                            CONNECT: true,
+                            READ_MESSAGE_HISTORY: true,
+                            VIEW_CHANNEL: true,
+                            ADD_REACTIONS: true,
+                            MANAGE_CHANNELS: true
+                        });
+                        settedParent.send({
+                            embed: {
+                                title: `Hallo ${message.author.username}`,
+                                description: "We helpen je zo snel mogelijk!",
+                                color: "BLUE"
+                            }
+                        });
+                        message.channel.send({
+                            embed: {
+                                title: `Hallo ${message.author.username}!`,
+                                description: `Je ticket is aangemaakt! \n\n Ticket: ${settedParent}`,
+                                color: "GREEN"
+                            }
+                        });
+                    });
+            }).catch(err => {
+                message.reply("Er is iets foutgelopen");
+            });
     }
 
 
