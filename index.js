@@ -116,7 +116,7 @@ client.on("message", async message => {
         if (!kickUser) return message.reply("gebruiker niet gevonden");
 
         var embedPrompt = new discord.MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setTitle("Gelieve binnen 30 sec te reageren")
             .setDescription(`Wil je ${kickUser} kicken?`);
 
@@ -186,7 +186,7 @@ client.on("message", async message => {
 
         if (!banUser) return message.reply("gebruiker niet gevonden");
         var embedPrompt = new discord.MessageEmbed()
-            .setColor("GREEN")
+            .setColor("RED")
             .setTitle("Gelieve binnen 30 sec te reageren")
             .setDescription(`Wil je ${banUser} bannen?`);
 
