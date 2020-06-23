@@ -41,13 +41,13 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberRemove", member => {
 
-    var channel = member.guild.channels.cache.get('718765797048320041');
+    var channel = member.guild.channels.cache.get('718763245246349315');
     if (!channel) return;
 
     channel.send({
         embed: {
             title: `TOT ZIENS`,
-            description: `Jammer dat je weggaat ${member.user.username}!\nWe hebben nu nog ${member.guild.memberCount} leden!`,
+            description: `Jammer dat je weggaat **${member.user.username}**!\nWe hebben nu nog **${member.guild.memberCount}** leden!`,
             color: "RED",
             timestamp: new Date(),
             thumbnail: {
