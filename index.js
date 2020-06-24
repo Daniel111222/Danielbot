@@ -376,10 +376,9 @@ client.on("message", async message => {
             .setTitle("Commands Bot")
             .setColor("#0099ff")
             .addFields(
-                { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
-                { value: "!help - Dan krijg je dit bericht" },
-                { value: "!hallo - Dan stuurt de bot hallo terug" },
-                { value: "!new - Ticket aanmaken" }
+                { name: "**!help**", value: "Je krijgt dit bericht." },
+                { name: "**!new**", value: "Je maakt een ticket aan." },
+                { name: "**!ticket**", value: "je maakt een ticket aan." }
             )
 
         return message.channel.send(botEmbed);
