@@ -370,7 +370,9 @@ client.on("message", async message => {
         }
     }
 
-    if (commands === 'help') {
+    module.export.help = {
+        name: "help"
+    }
 
     module.export.run = async (client, message, args) => {
 
@@ -384,9 +386,7 @@ client.on("message", async message => {
 
         } catch (error) {
             message.reply("Er is iets fout gelopen");
-        }
-
-    }   
+        } 
 
     }
 
