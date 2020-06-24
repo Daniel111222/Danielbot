@@ -376,11 +376,11 @@ client.on("message", async message => {
             .setTitle("Commands Bot")
             .setColor("#0099ff")
             .addFields(
+                { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
                 { value: "!help - Dan krijg je dit bericht" },
                 { value: "!hallo - Dan stuurt de bot hallo terug" },
                 { value: "!new - Ticket aanmaken" }
             )
-            .addField("Bot naam", client.user.username);
 
         return message.channel.send(botEmbed);
     }
