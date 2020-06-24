@@ -370,6 +370,24 @@ client.on("message", async message => {
         }
     }
 
+    module.export.run = async (client, message, args) => {
+
+        try {
+
+            var text = "**Daniël Bot \n\n **_Commands_** \n !hallo - Geeft een hallo terug. \n !info - geeft info.";
+
+            message.author.send(text);
+
+            message.reply("Alle commands kan je vinden in je prive berichten");
+
+        } catch (error) {
+            message.reply("Er is iets fout gelopen");
+        }
+            
+        
+    }
+
+
     // async function promptMessage(message, author, time, reactions) {
 
     //     time *= 1000;
