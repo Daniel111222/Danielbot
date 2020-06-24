@@ -370,26 +370,21 @@ client.on("message", async message => {
         }
     }
 
-    if (commands === `help`) {
+    if (commands === 'help') {
 
-    async (client, message, args) => {
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle("Commands Bot")
+            .setDescription("Een paar vragen:")
+            .setColor("#0099ff")
+            .addFields(
+                { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
+                { name: "Wat kan de bot allemaal?", value: "Ik streef ernaar met hulp van de helpers, dat de bot alles kan." },
+                { name: "Hoe maak ik een ticket aan?", value: "Door in #cmds !ticket of !new te schrijven." }
+            )
+            .addField("Bot naam", client.user.username);
 
-        try {
-
-            var text = "**Daniël Bot \n\n **_Commands_** \n !hallo - Geeft een hallo terug. \n !info - geeft info.";
-
-            message.author.send(text);
-
-            message.reply("Alle commands kan je vinden in je prive berichten");
-
-        } catch (error) {
-            message.reply("Er is iets fout gelopen");
-        } 
-
+        return message.channel.send(botEmbed);
     }
-
-    }
-
 
     // async function promptMessage(message, author, time, reactions) {
 
