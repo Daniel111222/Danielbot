@@ -370,11 +370,7 @@ client.on("message", async message => {
         }
     }
 
-    module.export.help = {
-        name: "help"
-    }
-
-    module.export.run = async (client, message, args) => {
+    async (client, message, args) => {
 
         try {
 
