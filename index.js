@@ -370,6 +370,8 @@ client.on("message", async message => {
         }
     }
 
+    if (commands === 'help') {
+
     module.export.run = async (client, message, args) => {
 
         try {
@@ -383,8 +385,9 @@ client.on("message", async message => {
         } catch (error) {
             message.reply("Er is iets fout gelopen");
         }
-            
-        
+
+    }   
+
     }
 
 
