@@ -370,6 +370,8 @@ client.on("message", async message => {
         }
     }
 
+    if (commands === `help`) {
+
     async (client, message, args) => {
 
         try {
@@ -383,6 +385,8 @@ client.on("message", async message => {
         } catch (error) {
             message.reply("Er is iets fout gelopen");
         } 
+
+    }
 
     }
 
