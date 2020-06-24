@@ -103,19 +103,6 @@ client.on("message", async message => {
 
         }
     }
-        var staffChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
-        if (!staffChannel) return message.reply(`Het kanaal ${staffChannel} is niet gevonden!`);
-        staffChannel.send({
-            embed: {
-                title: `${message.author.username} (_${message.author.id}_) gebruikte een link.`,
-                description: `${message.author} stuurde een tekst, waar een link in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
-                color: "RED",
-                timestamp: new Date(),
-                footer: {
-                    text: message.author.username
-                }
-            }
-        });
 
     if (!message.content.startsWith(prefix)) return;
 
