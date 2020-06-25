@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.export.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
     const categoryID = "723177277189259344";
 
