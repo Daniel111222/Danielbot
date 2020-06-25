@@ -64,5 +64,5 @@ module.export.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "ticket"
+    name: "new"
 }

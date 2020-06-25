@@ -2,8 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) => {
 
-    console.log("TEST");    
-
+    return message.channel.send("hallo!");
 }
 
 module.exports.help = {
