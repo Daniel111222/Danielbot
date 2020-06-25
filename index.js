@@ -1,21 +1,6 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const client = new discord.Client();
-client.login(process.env.token);
-
-const fs = require("fs");
-
-client.on("ready", async () => {
-
-    console.log(`${client.user.username} is online.`);
-    client.user.setActivity("Testing", { type: "PLAYING" });
-
-});
-
-const discord = require("discord.js");
-const botConfig = require("./botconfig.json");
-
 const fs = require("fs");
 
 const bot = new discord.Client();
@@ -45,8 +30,8 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
 
-    console.log(`Daniël Bot is online!`);
-    bot.user.setActivity("Daniël bot", { type: "WATCHING" });
+    console.log(`${client.user.username} is online.`);
+    client.user.setActivity("Testing", { type: "PLAYING" });
 
 });
 
