@@ -108,7 +108,7 @@ bot.on("guildMemberAdd", member => {
 
 });
 
-client.on("guildMemberRemove", member => {
+bot.on("guildMemberRemove", member => {
 
     var channel = member.guild.channels.cache.get('718763245246349315');
     if (!channel) return;
