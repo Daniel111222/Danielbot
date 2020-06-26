@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const botConfig = require("./botconfig.json");
 
 const fs = require("fs");
 
@@ -40,9 +41,9 @@ bot.on("message", async message => {
 
     if (message.channel.type == "dm") return;
 
-    if (message.content.indexOf(botConfig.prefix) !== 0) return;
-
     var prefix = botConfig.prefix;
+
+    if (!message.content.startsWith(prefix)) return;
 
     var messageArray = message.content.split(" ");
 
@@ -52,28 +53,7 @@ bot.on("message", async message => {
 
     if (commands) commands.run(bot, message, arguments);
     
-});
-
-bot.login(process.env.token);
-
-
-bot.on("message", async message => {
-
-    if (message.author.bot) return;
-
-    if (message.channel.type == "dm") return;
-
-    if (!message.content.startsWith(prefix)) return;
-
-    var prefix = botConfig.prefix;
-
-    var messageArray = message.content.split(" ");
-
-    var command = messageArray[0];
-
-    var commands = command.slice(prefix.length);
-
-
+    
     var swearWords = JSON.parse(fs.readFileSync("./swearWords.json"));
 
     var msg = message.content.toLocaleLowerCase().split(" ");
