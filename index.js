@@ -28,12 +28,12 @@ fs.readdir("./commands/", (err, files) => {
 
 });
 
-bot.on("ready", async () => {
+bot.on("ready"), async () => {
 
     console.log(`${client.user.username} is online.`);
     client.user.setActivity("Testing", { type: "PLAYING" });
 
-});
+};
 
 bot.on("message", async message => {
 
