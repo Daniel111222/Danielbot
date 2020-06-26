@@ -82,7 +82,7 @@ bot.on("message", async message => {
     }
 });
 
-client.on("guildMemberAdd", member => {
+bot.on("guildMemberAdd", member => {
 
     var role = member.guild.roles.cache.get('721118805107146762');
     if (!role) return;
