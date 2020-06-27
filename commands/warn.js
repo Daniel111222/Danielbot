@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
 
     var warnUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     
-    var reason = args[1].join(" ");
+    var reason = args.slice(1).join(" ");
 
     if (!warnUser) return message.reply("gebruiker niet gevonden");
 
