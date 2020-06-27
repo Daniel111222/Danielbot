@@ -47,7 +47,6 @@ module.exports.run = async(bot, message, args) => {
 
     channel.send(embed);
 
-    
 }
 
 module.exports.help = {
