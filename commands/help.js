@@ -2,16 +2,18 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    var botEmbed = new discord.MessageEmbed()
-        .setTitle("Commands Bot")
-        .setColor("#0099ff")
-        .addFields(
-            { name: "**!help**", value: "Je krijgt dit bericht." },
-            { name: "**!new**", value: "Je maakt een ticket aan." },
-            { name: "**!ticket**", value: "je maakt een ticket aan." }
-        )
+    try {
 
-    return message.channel.send(botEmbed);
+        var text = "**Daniël bot** \n\n **_Commands_** \n !hallo - Stuurt hallo terug. \n !info - Geeft info.";
+
+        message.author.send(text);
+
+        message.reply("Alle commands kan je vinden in je privé berichten");
+
+    } catch (error) {
+        message.reply("Er is iets fout gelopen");
+    }
+
 }
 
 module.exports.help = {
