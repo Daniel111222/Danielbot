@@ -49,7 +49,7 @@ bot.on("message", async message => {
 
     var args = message.content.split(" ");
 
-    var command = messageArray[0];
+    var command = args[0];
 
     var commands = bot.commands.get(command.slice(prefix.length));
 
