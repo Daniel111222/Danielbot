@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
 
         message.author.send(text);
 
-        message.reply("Alle commands kan je vinden in je privé berichten");
+        message.reply("Alle commands kan je vinden in je privé berichten💌");
 
     } catch (error) {
         message.reply("Er is iets fout gelopen");
