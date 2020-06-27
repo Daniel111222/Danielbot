@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
     console.log(args);
     
-    var reason = args.slice(1).join(" ");
+    var reason = args.slice(2).join(" ");
 
     if (!warnUser) return message.reply("gebruiker niet gevonden");
 
