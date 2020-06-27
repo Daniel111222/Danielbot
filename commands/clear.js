@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.reply("Geef een getal op.");
 
-    if (Number.isInteger(parseInt(args[0]))) {
+    if (!isNaN(args[0])) {
 
         var amount = parseInt(args[0]) + 1;
 
