@@ -18,17 +18,17 @@ module.exports.run = async (client, message, args) => {
 
     console.log(args);
     
-    var reason = args.slice(2).join(" ");
+    var reason = args.slice(1).join(" ");
 
     if (!warnUser) return message.reply("gebruiker niet gevonden");
 
     if(warnUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, je kunt deze gebruiker niet warnen.");
 
     if (!warns[warnUser.id]) warns[warnUser.id] = {
-        warns: 0
+        warnings: 0
     };
 
-    warns[warnUser.id].warns++;
+    warns[warnUser.id].warnings++;
 
     fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err);
@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription(`**Gewarnd: ** ${warnUser} (${warnUser.id})
         **warning door:** ${message.author}
         **Redenen: ** ${reason}`)
-        .addField("Aantal warns", warns[warnUser.id].warns);
+        .addField("Aantal warns", warns[warnUser.id].warnings);
 
     var channel = message.member.guild.channels.cache.get("718769530050183198")
 
