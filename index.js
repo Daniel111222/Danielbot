@@ -32,7 +32,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
 
-    console.log(`${client.user.username} is online.`);
+    console.log(`${bot.user.username} is online.`);
     client.user.setActivity("Testing", { type: "PLAYING" });
 
 });
