@@ -15,6 +15,8 @@ module.exports.run = async (client, message, args) => {
     if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("geen perms");
 
     var warnUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+
+    console.log(args);
     
     var reason = args.slice(1).join(" ");
 
