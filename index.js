@@ -33,7 +33,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online.`);
-    client.user.setActivity("Testing", { type: "PLAYING" });
+    bot.user.setActivity("Testing", { type: "PLAYING" });
 
 });
 
