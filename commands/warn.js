@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!warnUser) return message.reply("gebruiker niet gevonden");
 
-    if(warnUser.hasPermission("MANAGE_MESSAGE")) return message.reply("Sorry, je kunt deze gebruiker niet warnen.");
+    if(warnUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, je kunt deze gebruiker niet warnen.");
 
     if (!warns[warnUser.id]) warns[warnUser.id] = {
         warns: 0
