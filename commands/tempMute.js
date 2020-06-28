@@ -6,7 +6,7 @@ module.exports.run = async(bot, message, args) => {
 
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("sorry jij kan dit niet gebruiken");
 
-    if (!args[0]) return message.reply("geen gebruiker opgegeven");
+    if (!args[1]) return message.reply("geen gebruiker opgegeven.");
 
     if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("geen perms");
 
@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
 
     if (mutePerson.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, je kunt deze gebruiker niet muten.");
 
-    var muteRole = message.guild.roles.cache.get(`720922522589331460`);
+    const muteRole = message.guild.roles.cache.find(role => role.name == "muted");
     if (!muteRole) return message.channel.send("De rol muted bestaat niet.");
 
     var muteTime = args[1];
