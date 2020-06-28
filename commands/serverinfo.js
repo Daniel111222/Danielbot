@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle("serverinfo")
-        .setDescription("Info")
+        .setDescription("Info:")
         .setColor("#0099ff")
         .addFields(
             { name: "Bot naam", value: client.user.username },
