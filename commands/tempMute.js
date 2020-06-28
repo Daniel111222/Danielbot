@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) => {
     const muteRole = message.guild.roles.cache.find(role => role.name == "muted");
     if (!muteRole) return message.channel.send("De rol muted bestaat niet.");
 
-    var muteTime = args[1];
+    var muteTime = args[2];
 
     if (!muteTime) return message.channel.send("Geen tijd opgegeven");
 
