@@ -17,7 +17,7 @@ module.exports.run = async(bot, message, args) => {
 
     if (mutePerson.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, je kunt deze gebruiker niet muten.");
 
-    const muteRole = message.guild.roles.cache.find(role => role.name == "muted");
+    const muteRole = message.guild.roles.cache.get(`720922522589331460`);
     if (!muteRole) return message.channel.send("De rol muted bestaat niet.");
 
     var muteTime = args[2];
