@@ -12,7 +12,6 @@ module.exports.run = async (client, message, args) => {
             { name: "Totaal members", value: message.guild.memberCount },
             { name: "Aantal servers", value: client.guilds.cache.size }
         )
-        .addField("Bot naam", client.user.username);
 
     return message.channel.send(botEmbed);
 }

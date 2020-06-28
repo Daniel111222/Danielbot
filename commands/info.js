@@ -8,8 +8,8 @@ module.exports.run = async (client, message, args) => {
         .setColor("#0099ff")
         .addFields(
             { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
-            { name: "Wat kan de bot allemaal?", value: "Ik streef ernaar met hulp van de helpers, dat de bot alles kan." },
-            { name: "Hoe maak ik een ticket aan?", value: "Door in #cmds !ticket of !new te schrijven." }
+            { name: "Wat kan de bot allemaal?", value: "Als je !help doet, krijg je in je een privé bericht van de bot." },
+            { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zult staan." }
         )
         .addField("Bot naam", client.user.username);
 
