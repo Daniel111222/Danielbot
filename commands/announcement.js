@@ -8,7 +8,7 @@ module.exports.run = async(bot, message, args) => {
 
     var seperator = "|";
 
-    if (args[0] == null) {
+    if (!args[0]) {
 
         var embed = new discord.MessageEmbed()
             .setTitle("Gebruik")
@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
             .setDescription(`Maak een annoucement aan door gebruik te maken van: \n !announcement title ${seperator} bericht ${seperator} kleur ${seperator} kanaal ${seperator}`);
 
         return message.reply(embed);
-        
+
     }
 
 }
