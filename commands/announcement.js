@@ -8,15 +8,15 @@ module.exports.run = async(bot, message, args) => {
 
     var seperator = "|";
 
-    if (!args[0]) {
+    if (args[0] == null) {
 
         var embed = new discord.MessageEmbed()
             .setTitle("Gebruik")
             .setColor("#00ee00")
             .setDescription(`Maak een annoucement aan door gebruik te maken van: \n !announcement title ${seperator} bericht ${seperator} kleur ${seperator} kanaal ${seperator}`);
 
-        return message.reply(embed);
-
+        return message.channel.send(embed);
+        
     }
 
 }
