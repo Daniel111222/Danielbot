@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) => {
             .setColor("#00ee00")
             .setDescription(`Maak een annoucement aan door gebruik te maken van: \n !announcement title ${seperator} bericht ${seperator} kleur ${seperator} kanaal ${seperator}`);
 
-        message.channel.send(embed);
+            return message.channel.send(embed);
         
     }
 
