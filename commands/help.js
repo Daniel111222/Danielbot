@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     try {
 
-        var text = "**kooien**, zorg ervoor dat 3 vrienden in de server komen en dan geef ik je mute! \n _ik wacht..._";
+        var text = "**kooien**, Als je mute wilt, moet je nu de server promoten \n **_Laat me niet wacht..._**";
 
         message.author.send(text);
 
