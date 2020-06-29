@@ -11,7 +11,10 @@ module.exports.run = async (client, message, args) => {
             { name: "Wat kan de bot allemaal?", value: "Als je !help doet, krijg je in je een privé bericht van de bot." },
             { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zult staan." }
         )
-        .addField("Bot naam", client.user.username);
+        .addField("Bot naam", client.user.username)
+        .setFooter("Gemaakt door @Daniël#2939. Veel dank aan de helpers.")
+        .setTimestamp();
+
 
     return message.channel.send(botEmbed);
 }
