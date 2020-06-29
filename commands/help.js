@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     try {
 
-        var text = "**kooien**, Als je mute wilt, moet je nu de server promoten \n **_Laat me niet wacht..._**";
+        var text = "Daniël bot \n\n Commands \n !hallo - Stuurt hallo terug. \n !info - Geeft info. \n !serverinfo - Geeft info over de server. \n !new - Voor ticket aanmaken. \n !ticket - Voor ticket aanmaken. \n\n staff \n !ban (mention id) (reden) - Als je iemand wilt ban geven. \n !kick (mention id) (reden) - Als je iemand kick wilt geven. \n !tempmute (mention id) (tijd) - als je iemand wilt muten voor een bepaalde tijd. \n !warn (mention id) (reden) - Als je iemand een warn wilt geven \n !close - Als je een ticket wilt afsluiten.";
 
         message.author.send(text);
 
