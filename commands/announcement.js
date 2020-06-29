@@ -1,6 +1,6 @@
-const discord = require("discord.js");  
+const discord = require("discord.js");
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     // !announcement title | bericht | kleur | kanaal
 
@@ -16,13 +16,13 @@ module.exports.run = async(bot, message, args) => {
             .setDescription(`Maak een annoucement aan door gebruik te maken van: \n !announcement title ${seperator} bericht ${seperator} kleur ${seperator} kanaal ${seperator}`);
 
         return message.channel.send(embed);
-        
+
     }
 
     var argsList = args.join(" ").split(seperator);
 
-    if(argsList[2] === undefined) argsList[2] = "#eeeeee";
-    if(argsList[3] === undefined) argsList[3] = "#chat";
+    if (argsList[2] === undefined) argsList[2] = "#eeeeee";
+    if (argsList[3] === undefined) argsList[3] = "#chat";
 
     var options = {
 
@@ -42,7 +42,7 @@ module.exports.run = async(bot, message, args) => {
     var channel = message.member.guild.channels.cache.find(channels => channels.name === options.kanaal);
     if (!channel) return message.reply("Dit kanaal is bestaat niet");
 
-    channel.send(announceEmbed);    
+    channel.send(announceEmbed);
 
 }
 
