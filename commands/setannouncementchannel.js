@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
   
   let sEmbed = new Discord.MessageEmbed()
   .setColor("#ff0000")
-  .setTitle("announcechannem set!")
+  .setTitle("announcechannel set!")
   .setDescription(`successfully channeled to receive announcements`);
   
   message.channel.send(sEmbed);
