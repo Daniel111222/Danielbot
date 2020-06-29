@@ -12,6 +12,10 @@ module.exports.run = async (client, message, args) => {
             { name: "Totaal members", value: message.guild.memberCount },
             { name: "Aantal servers", value: client.guilds.cache.size }
         )
+        //.setThumbnail("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        //.setImage("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.") //, "https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        .setTimestamp();
 
     return message.channel.send(botEmbed);
 }
