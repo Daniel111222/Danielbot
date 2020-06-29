@@ -12,9 +12,9 @@ module.exports.run = async (client, message, args) => {
             { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zult staan." }
         )
         .addField("Bot naam", client.user.username)
-        .setThumbnail("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
-        .setImage("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
-        .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.", "https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        //.setThumbnail("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        //.setImage("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
+        .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.") //, "https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
         .setTimestamp();
 
 
