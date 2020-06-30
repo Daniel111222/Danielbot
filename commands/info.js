@@ -12,9 +12,9 @@ module.exports.run = async (client, message, args) => {
             { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zult staan." }
         )
         .addField("Bot naam", client.user.username)
-        .setThumbnail("https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
-        .setImage("https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
-        .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.", "https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
+        //.setThumbnail("https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
+        //.setImage("https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
+        .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.") //"https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
         .setTimestamp();
 
 
