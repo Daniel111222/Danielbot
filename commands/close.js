@@ -13,7 +13,6 @@ module.exports.run = async (client, message, args) => {
             .setTitle("Ticket | " + message.channel.name)
             .setDescription("De ticket is afgesloten, bedankt voor je hulp!")
             .setColor("#249643")
-            .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.")
             .setTimestamp();
 
         var ticketChannel = message.member.guild.channels.cache.find(channel => channel.name === "logs");
