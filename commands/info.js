@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
     .setTitle("info")
-    .setColor("#0099ff")
+    .setColor("#32a852")
     .addFields(
         { name: "Dit is De officiële support server van de bot: Daniël bot", value: "[Klik Hier!](https://discord.gg/2E5fhn3)" },
         { name: "Dit is de link van de officiële Daniël bot", value: "_De link van de bot zal hier staan, wanneer de bot uit is._"},
