@@ -4,14 +4,8 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle("regels")
-        .setDescription("De regels zijn:")
+        .setDescription("\n **_NIET SPAMMEN_** \n\n **_NIET SCHELDEN_** \n\n **_NIET ONNODIG MENSEN TAGGEN_** \n\n **_NIET ADVERTEREN ZONDER TOESTEMMING_** \n\n\n Houd u zich niet aan de regels, zal u de consequenties voelen.")
         .setColor("#0099ff")
-        .addFields(
-            { name: "_NIET SPAMMEN_" },
-            { name: "_NIET SCHELDEN_" },
-            { name: "_NIET ONNODIG TAGGEN_"},
-            { name: "_NIET ADVERTEREN ZONDER TOESTEMMING_"}
-        )
         //.setThumbnail("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
         //.setImage("https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
         .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.") //, "https://zeroserenity.com/wp-content/uploads/2019/07/Discord-Logo-Red.png")
