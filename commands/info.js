@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
         .addFields(
             { name: "Wanneer is de bot af?", value: "De bot is binnnen twee weken af." },
             { name: "Wat kan de bot allemaal?", value: "Als je !help doet, krijg je in je een privé bericht van de bot." },
-            { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zult staan." }
+            { name: "Hoe invite ik de bot?", value: "Wanneer de bot af is, zal heel duidelijk aangegeven worden, waar de link zal staan." }
         )
         .addField("Bot naam", client.user.username)
         //.setThumbnail("https://media.discordapp.net/attachments/727563359276236950/727565807831482468/image0.png?width=633&height=475")
