@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
-    .setTitle("info")
+    .setTitle("Info")
     .setColor("#32a852")
     .addFields(
         { name: "Dit is De officiële support server van de bot: Daniël bot", value: "[Klik Hier!](https://discord.gg/2E5fhn3)" },
