@@ -2,6 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
+    var prefix = botConfig.prefix
+
     // !kick @spelerNaam redenen hier
 
     var args = message.content.slice(prefix.length).split(/ +/);
