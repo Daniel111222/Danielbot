@@ -2,9 +2,9 @@ const discord = require("discord.js");
 
 const botConfig = require("../botConfig.json");
 
-    var prefix = botConfig.prefix
+var prefix = botConfig.prefix
 
-    module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
     // !kick @spelerNaam redenen hier
 
@@ -69,8 +69,8 @@ const botConfig = require("../botConfig.json");
 
             } else {
                 message.reply("Geannuleerd");
-                
-            }           
+
+            }
 
         });
 
