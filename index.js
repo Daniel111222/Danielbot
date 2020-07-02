@@ -55,33 +55,6 @@ bot.on("message", async message => {
 
     if (commands) commands.run(bot, message, args);
 
-
-    var swearWords = JSON.parse(fs.readFileSync("./swearWords.json"));
-
-    var msg = message.content.toLocaleLowerCase().split(" ");
-    for (let i = 0; i < swearWords["swearwords"].length; i++) {
-        if (msg.includes(swearWords["swearwords"][i])) {
-            message.delete();
-            message.reply(`Je bericht is verwijdert, aangezien scheldwoorden verboden zijn.`).then(msg => msg.delete({ timeout: 5000 })).catch(err => {
-                message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
-            });
-
-            var logChannel = message.guild.channels.cache.get("718769530050183198")
-
-            logChannel.send({
-                embed: {
-                    title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
-                    description: `${message.author} stuurde een tekst, waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
-                    color: "RED",
-                    timestamp: new Date(),
-                    footer: {
-                        text: message.author.username
-                    }
-                }
-            });
-
-        }
-    }
 });
 
 bot.on("guildMemberAdd", member => {
