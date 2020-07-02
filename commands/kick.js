@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-const botConfig = require("./botconfig.json");
+const botConfig = require("../botconfig.json");
 
 var prefix = botConfig.prefix
 
