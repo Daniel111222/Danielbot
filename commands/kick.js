@@ -1,10 +1,10 @@
 const discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
-
-    const botConfig = require("../botConfig.json");
+const botConfig = require("../botConfig.json");
 
     var prefix = botConfig.prefix
+
+    module.exports.run = async (client, message, args) => {
 
     // !kick @spelerNaam redenen hier
 
