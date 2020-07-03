@@ -43,6 +43,30 @@ bot.on("message", async message => {
 
     if (message.channel.type == "dm") return;
 
+var swearWords = ["kanker", "tyfus", "mongool"];
+
+// client.on("message", async message => {
+
+    if (message.author.bot) return;
+
+    if (message.channel.type === "dm") return;
+
+
+    // var msg = message.content.toLowerCase();
+
+    // for (let i = 0; i < swearWords.length; i++) {
+            
+    //     if (msg.includes(swearWords[i])) {
+
+    //         message.delete();
+
+    //         return message.reply("Vloeken is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 });
+                    
+               
+    //     }
+    // }
+
+
     var prefix = botConfig.prefix;
 
     if (!message.content.startsWith(prefix)) return;
@@ -104,17 +128,3 @@ bot.on("guildMemberRemove", member => {
     });
 
 });
-
-    // async function promptMessage(message, author, time, reactions) {
-
-    //     time *= 1000;
-
-    //     for (const reaction of reactions) {
-    //         await message.react(reaction)
-    //     }
-
-    //     var filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
-
-    //     return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
-
-    // }
