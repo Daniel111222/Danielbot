@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
     )
     .setThumbnail("https://cdn.discordapp.com/attachments/719562600282849324/728585483118051368/BOT_NU_g_OE_d.jpg")
     .setImage("https://cdn.discordapp.com/attachments/719562600282849324/728585483118051368/BOT_NU_g_OE_d.jpg")
-    .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.", "https://cdn.discordapp.com/attachments/719562600282849324/728585483118051368/BOT_NU_g_OE_d.jpg")
+    .setFooter("Gemaakt door @Daniël#2939 en veel dank aan de helpers.") //, "https://cdn.discordapp.com/attachments/719562600282849324/728585483118051368/BOT_NU_g_OE_d.jpg")
     .setTimestamp();
 
 return message.channel.send(botEmbed);
