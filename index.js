@@ -43,28 +43,15 @@ bot.on("message", async message => {
 
     if (message.channel.type == "dm") return;
 
-var swearWords = ["kanker", "tyfus", "mongool"];
+    var swearWords = ["kanker", "tyfus", "mongool"];
 
-// client.on("message", async message => {
+
 
     if (message.author.bot) return;
 
     if (message.channel.type === "dm") return;
 
 
-    // var msg = message.content.toLowerCase();
-
-    // for (let i = 0; i < swearWords.length; i++) {
-            
-    //     if (msg.includes(swearWords[i])) {
-
-    //         message.delete();
-
-    //         return message.reply("Vloeken is niet toegestaan!").then(msg => msg.delete({ timeout: 3000 });
-                    
-               
-    //     }
-    // }
 
 
     var prefix = botConfig.prefix;
@@ -78,6 +65,35 @@ var swearWords = ["kanker", "tyfus", "mongool"];
     var commands = bot.commands.get(command.slice(prefix.length));
 
     if (commands) commands.run(bot, message, args);
+
+
+
+    var swearWords = JSON.parse(fs.readFileSync("./swearWords.json"));
+
+    var msg = message.content.toLocaleLowerCase().split(" ");
+    for (let i = 0; i < swearWords["swearwords"].length; i++) {
+        if (msg.includes(swearWords["swearwords"][i])) {
+            message.delete();
+            message.reply(`Je bericht is verwijdert, aangezien scheldwoorden verboden zijn.`).then(msg => msg.delete({ timeout: 5000 })).catch(err => {
+                message.channel.send('\`\`\`🔴 An error has occurred.\`\`\`');
+            });
+
+            var logChannel = message.guild.channels.cache.get("718769530050183198")
+
+            logChannel.send({
+                embed: {
+                    title: `${message.author.username} (_${message.author.id}_) gebruikte een scheldwoord.`,
+                    description: `${message.author} stuurde een tekst, waar een scheldwoord in voor kwam:\n${message.content}\n\nIn ${message.channel}`,
+                    color: "RED",
+                    timestamp: new Date(),
+                    footer: {
+                        text: message.author.username
+                    }
+                }
+            });
+
+        }
+    }
 
 });
 
