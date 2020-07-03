@@ -45,14 +45,9 @@ bot.on("message", async message => {
 
     var swearWords = ["kanker", "tyfus", "mongool"];
 
-
-
     if (message.author.bot) return;
 
     if (message.channel.type === "dm") return;
-
-
-
 
     var prefix = botConfig.prefix;
 
