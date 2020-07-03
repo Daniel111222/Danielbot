@@ -43,7 +43,7 @@ bot.on("message", async message => {
 
     if (message.channel.type == "dm") return;
 
-    //var swearWords = ["kanker", "tyfus", "mongool"];
+    // var swearWords = ["kanker", "tyfus", "mongool"];
 
     if (message.author.bot) return;
 
