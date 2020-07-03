@@ -43,7 +43,7 @@ bot.on("message", async message => {
 
     if (message.channel.type == "dm") return;
 
-    var swearWords = ["kanker", "tyfus", "mongool"];
+    //var swearWords = ["kanker", "tyfus", "mongool"];
 
     if (message.author.bot) return;
 
@@ -63,7 +63,7 @@ bot.on("message", async message => {
 
 
 
-    var swearWords = JSON.parse(fs.readFileSync("./swearWords.json"));
+    var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 
     var msg = message.content.toLocaleLowerCase().split(" ");
     for (let i = 0; i < swearWords["swearwords"].length; i++) {
