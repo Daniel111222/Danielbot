@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
     var botEmbed = new discord.MessageEmbed()
         .setTitle("serverinfo")
         .setDescription("Info:")
-        .setColor("#0099ff")
+        .setColor("#ba56b2")
         .addFields(
             { name: "Bot naam", value: client.user.username },
             { name: "Je bent de server gejoined op", value: message.member.joinedAt },
