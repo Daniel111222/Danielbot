@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
-    .setTitle("Info")
+    .setTitle("invites")
     .setColor("#32a852")
     .addFields(
         { name: "Dit is de link van de officiële Daniël bot", value: "_De link van de bot zal hier staan, wanneer de bot uit is._"},
@@ -19,5 +19,5 @@ return message.channel.send(botEmbed);
 }
 
 module.exports.help = {
-    name: "info"
+    name: "invite"
 }
