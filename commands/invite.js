@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
     .setTitle("invites")
     .setColor("#32a852")
     .addFields(
-        { name: "Dit is de link van de officiële Daniël bot.", value: "_Bot is nog niet klaar._"},
+        { name: "Dit is de link van de officiële Daniël bot.", value: "Nog niet (。_。)**"},
         { name: "Dit is De officiële support server van de bot: Daniël bot.", value: "[Klik Hier!](https://discord.gg/2E5fhn3)" },
         { name: "Dit is De officiële website van de Daniël bots.", value: "[Klik Hier!](https://danielbot.webnode.nl/)" },
     )
