@@ -23,6 +23,7 @@ module.exports.run = async (bot, message, args) => {
 
     var date = new Date().getTime();
     var dateEnd = new Date(date + (time * 1000));
+    console.log(date);
 
     var giveawayEmbed = new discord.MessageEmbed()
         .setTitle("🎉 **GIVEAWAY** 🎉")
