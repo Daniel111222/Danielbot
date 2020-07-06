@@ -14,15 +14,15 @@ module.exports.run = async(bot, message, args) => {
 
         if (result == "papier") {
 
-            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Ik win`);
+            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Ik win 😂`);
 
         } else if (result == "schaar") {
 
-            return message.channel.send(`Ik heb ${result} :scissors:, Jij wint`)
+            return message.channel.send(`Ik heb ${result} :scissors:, Jij wint 🎉`)
 
         } else if (result == "steen") {
 
-            return message.channel.send(`Ik heb ${result} :moyai:, Het is gelijkspel`)
+            return message.channel.send(`Ik heb ${result} :moyai:, Het is gelijkspel 😑`)
 
         }
 
@@ -31,15 +31,15 @@ module.exports.run = async(bot, message, args) => {
 
         if (result == "schaar") {
 
-            return message.channel.send(`Ik heb ${result} :scissors:, Ik win`);
+            return message.channel.send(`Ik heb ${result} :scissors:, Ik win 😂`);
 
         } else if (result == "steen") {
 
-            return message.channel.send(`Ik heb ${result} :moyai:, Jij wint`)
+            return message.channel.send(`Ik heb ${result} :moyai:, Jij wint 🎉`)
 
         } else if (result == "papier") {
 
-            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Het is gelijkspel`)
+            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Het is gelijkspel 😑`)
 
         }
 
@@ -47,15 +47,15 @@ module.exports.run = async(bot, message, args) => {
 
         if (result == "steen") {
 
-            return message.channel.send(`Ik heb ${result} :moyai:, Ik win`);
+            return message.channel.send(`Ik heb ${result} :moyai:, Ik win 😂`);
 
         } else if (result == "papier") {
 
-            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Jij wint`)
+            return message.channel.send(`Ik heb ${result} :notepad_spiral:, Jij wint 🎉`)
 
         } else if (result == "schaar") {
 
-            return message.channel.send(`Ik heb ${result} :scissors:, Het is gelijkspel`)
+            return message.channel.send(`Ik heb ${result} :scissors:, Het is gelijkspel 😑`)
 
         }
 
