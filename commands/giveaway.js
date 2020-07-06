@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
         }
 
         if (peopleReacted.length == 0) {
-            return message.channel.send("Niemand heeft gewonnen, dus de bot wint.");
+            return message.channel.send("Niemand heeft mee gedaan, dus de bot wint.");
         }
 
         if (peopleReacted.length < winnerCount) {
@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args) => {
 
         for (let y = 0; y < winners.length; y++) {
 
-            message.channel.send("Gefeliciteerd: " + winners[y].username + `Je hebt gewonnen ${item}`);
+            message.channel.send("Gefeliciteerd: " + winners[y].username + ` Je hebt gewonnen ${item}`);
 
         }
 
