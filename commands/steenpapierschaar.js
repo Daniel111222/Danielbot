@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
 
     var result = options[Math.floor(Math.random() * options.length)];
 
-    if (arg[1] == "steen") {
+    if (args[1] == "steen") {
 
         if (result == "papier") {
 
@@ -27,7 +27,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
     }
-    else if (arg[1] == "papier") {
+    else if (args[1] == "papier") {
 
         if (result == "schaar") {
 
@@ -43,7 +43,7 @@ module.exports.run = async(bot, message, args) => {
 
         }
 
-    } else if (arg[1] == "schaar") {
+    } else if (args[1] == "schaar") {
 
         if (result == "steen") {
 
