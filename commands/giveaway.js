@@ -20,12 +20,12 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete();
 
-    var data = new Date.now().getTime();
-    var dataEnd = new Date(data + (time * 1000));
+    var date = new Date().getTime();
+    var dateEnd = new Date(date + (time * 1000));
 
     var giveawayEmbed = new discord.MessageEmbed()
         .setTitle("🎉 **GIVEAWAY** 🎉")
-        .setFooter(`Vervalt: ${dataEnd}`)
+        .setFooter(`Vervalt: ${dateEnd}`)
         .setDescription(item);
 
     var embedSend = await message.channel.send(giveawayEmbed);
