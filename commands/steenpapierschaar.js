@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
 
     var result = options[Math.floor(Math.random() * options.length)];
 
-    if (args[0].toUpperCase() == "STEEN") {
+    if (args[0].toUpperCase() == "steen") {
 
         if (result == "papier") {
 
@@ -27,7 +27,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
     }
-    else if (args[0].toUpperCase() == "PAPIER") {
+    else if (args[0].toUpperCase() == "papier") {
 
         if (result == "schaar") {
 
@@ -43,7 +43,7 @@ module.exports.run = async(bot, message, args) => {
 
         }
 
-    } else if (args[0].toUpperCase() == "SCHAAR") {
+    } else if (args[0].toUpperCase() == "schaar") {
 
         if (result == "steen") {
 
