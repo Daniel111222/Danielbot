@@ -4,13 +4,13 @@ module.exports.run = async(bot, message, args) => {
 
     // sps steen, papier, schaar
 
-    if (!args[0]) return message.reply("Gebruik sps <steen, papier, schaar>");
+    if (!args[1]) return message.reply("Gebruik sps <steen, papier, schaar>");
 
     var options = ["steen", "papier", "schaar"];
 
     var result = options[Math.floor(Math.random() * options.length)];
 
-    if (args[0].toUpperCase() == "steen") {
+    if (args[1].toUpperCase() == "steen") {
 
         if (result == "papier") {
 
@@ -27,7 +27,7 @@ module.exports.run = async(bot, message, args) => {
         }
 
     }
-    else if (args[0].toUpperCase() == "papier") {
+    else if (args[1].toUpperCase() == "papier") {
 
         if (result == "schaar") {
 
@@ -43,7 +43,7 @@ module.exports.run = async(bot, message, args) => {
 
         }
 
-    } else if (args[0].toUpperCase() == "schaar") {
+    } else if (args[1].toUpperCase() == "schaar") {
 
         if (result == "steen") {
 
