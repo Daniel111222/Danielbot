@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete();
 
-    var date = new Date.now().getTime();
+    var date = new Date().getTime();
     var dateEnd = new Date(date + (time * 1000));
 
     var giveawayEmbed = new discord.MessageEmbed()
