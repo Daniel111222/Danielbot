@@ -20,8 +20,9 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete();
 
-    var date = new Date();
-    var dateEnd = date + (time * 1000);
+    var date = new Date().getTime();
+    var dateEnd = new Date(date + (time * 1000));
+    
     console.dir(date + ' ' + dateEnd);
 
     console.log(date);
