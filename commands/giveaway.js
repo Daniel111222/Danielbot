@@ -10,9 +10,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry jij kan dit niet doen");
 
-    winnerCount = args[0];
-    time = args[1];
-    item = args.splice(2, args.length).join(" ");
+    winnerCount = args[1];
+    time = args[2];
+    item = args.slice(3, args.length).join(" ");
 
     if (!winnerCount) return message.reply("Geen aantal spelers opgegeven");
     if (!time) return message.reply("Geen tijd opgegeven");
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     var date = new Date().getTime();
     var dateEnd = new Date(date + (time * 1000));
     console.dir(date+' '+dateEnd);
-    return
+    
     console.log(date);
 
     var giveawayEmbed = new discord.MessageEmbed()
