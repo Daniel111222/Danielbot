@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if (!winnerCount) return message.reply("Geen aantal spelers opgegeven");
     if (!time) return message.reply("Geen tijd opgegeven");
     if (!item) return message.reply("Geen winnaars item opgegeven");
+    console.log(time);
 
     message.delete();
 
