@@ -1,42 +1,47 @@
 const discord = require("discord.js");
-
+ 
 module.exports.run = async (bot, message, args) => {
-
-    //!review aantalSterren tekst tekst tekst
-
-    const amountStars = args[0];
-
-    if (!amountStars || amountStars < 1 || amountStars > 5) return message.reply("Geef een aantal op tussen 1 en 5 sterren");
-
-    var text = args.splice(1, args.length).join(" ") || `**Geen tekst opgegeven**`;
-
-    var channel = message.member.guild.channels.cache.get("730000256569180210");
-
-    if (!channel) return message.channel.send("Kanaal bestaat niet");
-
-    var stars = "";
-    for (let i = 0; i < amountStars; i++) {
-
-        stars += ":star: ";
-
+ 
+    // Aantal sterren opvragen.
+    const aantalSterren = args[0];
+ 
+    // Nakijken als men een getal meegeeft, of als men een getal tussen 1 en 5 opgeeft.
+    if (!aantalSterren || aantalSterren < 1 || aantalSterren > 5) return message.channel.send("Geef een aantal sterren op! Kies tussen 1 en 5.");
+ 
+    // Nakijken als je een bericht hebt meegegeven.
+    const bericht = args.splice(1, args.length).join(' ') || '**Geen bericht meegegeven**';
+ 
+    // Kanaal waar reviews inkomen opzoeken.
+    var reviewChannel = message.guild.channels.cache.find(ch => ch.name === "algemeen"        );
+    // als kanaal niet is gevonden geef een bericht.
+    if (!reviewChannel) return message.channel.send("Kanaal niet gevonden");
+ 
+    var sterren = "";
+    // Voor ieder aantal sterren gaan we deze tekst aanmaken.
+    for (var i = 0; i < aantalSterren; i++) {
+ 
+        sterren += ":star: ";
+ 
     }
-
+ 
+    // Verwijder het bestaande bericht.
     message.delete();
-
-    const embed = new discord.MessageEmbed()
-        .setTitle(`${message.author.username} heeft een review geschreven`)
+ 
+    // Maak de review aan met het aantal sterren en het berichtje.
+    const review = new discord.MessageEmbed()
+        .setTitle(`${message.author.username} heeft een review geschreven! :tada:`)
         .setColor("#00ff00")
-        .addField("Sterren: ", stars)
-        .addField("Review: ", text);
-
-    message.channel.send("✅ Je hebt een review succesvol geschreven");
-
-    return message.channel.send(embed);
-
+        .addField("Sterren:", `${sterren}`)
+        .addField("Review:", `${bericht}`);
+ 
+    // Zend bericht naar de gebruiker dat hij een review heeft aangemaakt.
+    message.channel.send(":white_check_mark: Je hebt succesvol een review geschreven!");
+    // Zend het bericht in het review kanaal.
+    return reviewChannel.send(review);
+ 
 }
-
+ 
 module.exports.help = {
     name: "review",
-    description: "sterren geven",
-    category: "mening"
+    description: "review command."
 }
