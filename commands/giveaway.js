@@ -1,11 +1,9 @@
-const { MessageEmbed } = require("discord.js");
-const ms = require("ms");
-module.exports = {
-  name: "giveaway",
-  description: "Create a simple giveaway",
-  usage: "<time> <channel> <prize>",
-  category: "fun",
-  run: async (bot, message, args) => {
+const discord = require("discord.js");
+
+module.exports.run = async (bot, message, args) => {
+
+    //!giveaway tijd (s/m/h/d) #ChannelTag/channelID prize
+
     if (!args[0]) return message.channel.send(`You did not specify your time!`);
     if (
       !args[0].endsWith("d") &&
@@ -48,6 +46,10 @@ module.exports = {
       channel.send(
         `The winner of the giveaway for **${prize}** is... ${winner}`
       );
-    }, ms(args[0]));
-  },
-};
+    }, ms(args[0]));}
+
+module.exports.help = {
+    name: "giveaway",
+    description: "Geeft alle verschillende commands",
+    category: "Informatie"
+}
