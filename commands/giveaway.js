@@ -1,99 +1,20 @@
-const discord = require("discord.js");
-
-module.exports.run = async (bot, message, args) => {
-
-    //!giveaway aantalSpeler tijd berichtjeTekst
-
-    var item = "";
-    var time;
-    var winnerCount;
-
-    if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Sorry jij kan dit niet doen");
-
-    winnerCount = args[1];
-    time = args[2];
-    item = args.slice(3, args.length).join(" ");
-
-    if (!winnerCount) return message.reply("Geen aantal spelers opgegeven");
-    if (!time) return message.reply("Geen tijd opgegeven");
-    if (!item) return message.reply("Geen winnaars item opgegeven");
-
-    message.delete();
-
-    var date = new Date().getTime();
-    var dateEnd = new Date(date + (time * 1000));
-
-    console.dir(date + ' ' + dateEnd);
-
-    console.log(date);
-
-    var giveawayEmbed = new discord.MessageEmbed()
-        .setTitle("🎉 **GIVEAWAY** 🎉")
-        .setFooter(`Vervalt: ${dateEnd}`)
-        .setDescription(item);
-
-    var embedSend = await message.channel.send(giveawayEmbed);
-    embedSend.react("🎉");
-
-    setTimeout(function () {
-
-        var random = 0;
-        var winners = [];
-        var inList = false;
-
-        var peopleReacted = embedSend.reactions.cache.get("🎉").users.cache.array();
-
-        for (let i = 0; i < peopleReacted.length; i++) {
-
-            if (peopleReacted[i].id == bot.user.id) {
-                peopleReacted.splice(i, 1);
-                continue;
-            }
-
+const {MessageEmbed} = require('discord.js')
+module.exports={
+    name: 'giveaway',
+    description: 'Create a simpel giveaway',
+    usage: '<time> <prize>',
+    category: 'fun',
+    run: async(bot,message,args)=>{
+        let timev = message.content.slice(bot,prefix.length+9)
+        if(!timev) return message.channel.send('You did not specify your time in MS!')
+        let time = parseInt(timev,10)
+        if(time<= 15000){
+            return message.channel.send('Your time in ms has to be longer then 15 seconds! (15000 MS)')
         }
-
-        if (peopleReacted.length == 0) {
-            return message.channel.send("Niemand heeft mee gedaan, dus de bot wint.");
+        let prize = message.content.slice(bot.prefix.length+9+time.length)
+        if(!prize) return message.channel.send("No prize was specified!")
+        else{
+            message.channel.send(prize)
         }
-
-        if (peopleReacted.length < winnerCount) {
-            return message.channel.send("Er zijn te weinig mensen die mee deden, daarom heeft de bot gewonnen.");
-        }
-
-        for (let y = 0; y < winnerCount; y++) {
-
-            inList = false;
-
-            random = Math.floor(Math.random() * peopleReacted.length);
-
-            for (let o = 0; o < winners.length; o++) {
-
-                if (winners[0] == peopleReacted[random]) {
-                    inList = true;
-                    y--;
-                    break;
-                }
-
-            }
-
-            if (!inList) {
-                winners.push(peopleReacted[random]);
-            }
-
-        }
-
-        for (let y = 0; y < winners.length; y++) {
-
-            message.channel.send("Gefeliciteerd: " + winners[y].username + ` Je hebt gewonnen: **${item}**`);
-
-        }
-
-    }, time * 1000)
-
-}
-
-module.exports.help = {
-    name: "giveaway",
-    description: "Geeft alle verschillende commands",
-    category: "Informatie"
+    }
 }
