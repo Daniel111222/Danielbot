@@ -18,9 +18,9 @@ module.exports.run = async (bot, message, args) => {
 
     }
 
-    winnerCount = args[0];
-    time = args[1];
-    item = args.splice(2, args.length).join(" ");
+    winnerCount = args[1];
+    time = args[2];
+    item = args.splice(3, args.length).join(" ");
 
     if (!winnerCount) return message.channel.send("❌ Geen aantal spelers opgegeven!");
     if (!time) return message.channel.send("❌ Geen tijd opgegeven!");
