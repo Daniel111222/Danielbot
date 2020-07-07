@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("✅ Je hebt een review succesvol geschreven");
 
-    return channel.send(embed);
+    return message.channel.send(embed);
 
 }
 
