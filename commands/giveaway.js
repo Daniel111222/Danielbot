@@ -84,7 +84,7 @@ module.exports.run = async (bot, message, args) => {
 
         for (let y = 0; y < winners.length; y++) {
 
-            message.channel.send("Gefeliciteerd: " + winners[y].username + ` Je hebt gewonnen: ${item}`);
+            message.channel.send("Gefeliciteerd: " + winners[y].username + ` Je hebt gewonnen: **${item}**`);
 
         }
 
