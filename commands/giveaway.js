@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     var time;
     var winnerCount;
 
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry jij kan dit niet doen");
+    if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Sorry jij kan dit niet doen");
 
     winnerCount = args[1];
     time = args[2];
@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
     var giveawayEmbed = new discord.MessageEmbed()
         .setTitle("🎉 **GIVEAWAY** 🎉")
-        .setfooter("Succes iedereen!!!")
+        .setFooter(`Vervalt: ${dateEnd}`)
         .setDescription(item);
 
     var embedSend = await message.channel.send(giveawayEmbed);
