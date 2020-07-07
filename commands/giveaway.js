@@ -2,58 +2,99 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    //!giveaway tijd (s/m/h/d) #ChannelTag/channelID prize
+    var item = "";
+    var time;
+    var winnerCount;
 
-   if (!args[0]) return err(`You did not specify your time!`);
-        if (!args[0].endsWith("s") && !args[0].endsWith("m") && !args[0].endsWith("h") && !args[0].endsWith("d")) return err(`You did not use the correct formatting for the time!\nUse:\n-\`s\` For seconds\n-\`m\` For minutes\n-\`h\` For hours\n-\`d\` For days`);
-        if (isNaN(args[0][0])) return err(`You must give a valid number!`);
-        if (!args[1]) return err(`You did not specify a channel!`);
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
 
-        let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1]);
-        if (!channel) return err(`I could not find that channel in this server!`);
+        var noPermissionEmbed = new discord.MessageEmbed()
+            .setTitle("❌ Je hebt hier geen permissies voor!")
+            .setColor("#ff0006")
+            .setTimestamp()
+            .setFooter(`Antwoord op: ${message.author.tag}`);
 
-        let prize = args.slice(2).join(" ");
-        if (!prize) return err(`You did not specify a prize!`);
+        return message.channel.send(noPermissionEmbed);
 
-        let dateEnded = Date.now() + ms(args[0]);
+    }
 
-        msg(`Giveaway created in ${channel}`);
-        let Embed = new Discord.MessageEmbed()
-            .setTitle(`🎉 GIVEAWAY 🎉`)
-            .setDescription(`**${prize}**`)
-            .setFooter('Ends')
-            .setTimestamp(dateEnded)
-            .setColor(`#0000ff`);
-        let m = await channel.send(Embed);
-        m.react("🎉");
-        setTimeout(() => {
-            if (m.reactions.cache.get("🎉").count <= 1) {
-                err(`There were no participators`);
-                m.delete();
-                return;
+    winnerCount = args[0];
+    time = args[1];
+    item = args.plice(2, args.length).join(" ");
+
+    if (!winnerCount) return message.channel.send("❌ Geen aantal spelers opgegeven!");
+    if (!time) return message.channel.send("❌ Geen tijd opgegeven!");
+    if (!item) return message.channel.send("❌ Geen prijs opgegeven!");
+
+    message.delete();
+
+    var date = new Date().getTime();
+    var dateEnd = new Date(date + (time * 1000));
+
+    var giveawayEmbed = new discord.MessageEmbed()
+        .setTitle("🎉 Giveaway 🎉")
+        .setFooter(`Vervalt: ${dateEnd}`)
+        .setDescription(item);
+
+    var embedSend = await message.channel.send(giveawayEmbed);
+    embedSend.react("🎉");
+
+    setTimeout(function () {
+
+        var random = 0;
+        var winners = [];
+        var inList = false;
+
+        var peopleReacted = embedSend.reactions.cache.get("🎉").users.cache.array();
+
+        for (let i = 0; i < peopleReacted.length; i++) {
+
+            if (peopleReacted[i].id == bot.user.id) {
+                peopleReacted.plice(i, 1);
+                continue;
             }
 
-            let winner = m.reactions.cache.get("🎉").users.cache.filter((u) => !u.bot).random();
+        }
 
-            channel.send(`Congratulations, **${winner}**. You won:\n**${prize}**\n\nYou probably need to contact ${message.author}, since this member hosted the giveaway!`);
+        if (peopleReacted == 0) {
+            return message.channel.send("Niemand heeft gewonnen, dus ben ik de winnaar! 🎉");
+        }
 
-            m.edit({
-                embed: {
-                    title: '🎉 GIVEAWAY ENDED 🎉',
-                    description: `**${winner} won this giveaway!**`,
-                    timestamp: dateEnded,
-                    footer: {
-                        text: 'Ended'
-                    },
-                    color: '#0000ff'
+        if (peopleReacted < winnerCount) {
+            return message.channel.send("Er zijn niet genoeg mensen die mee deden, dus ben ik de winnaar! 🎉");
+        }
+
+        for (let y = 0; y < winnerCount.length; y++) {
+
+            inList = false;
+
+            random = Math.floor(Math.radom() * peopleReacted.length);
+
+            for (let o = 0; o < winners.length; o++) {
+
+                if (winners[o] == peopleReacted[random]) {
+                    inList = true;
+                    y--;
                 }
-            });
 
-        }, ms(args[0]));
+            }
+
+            if (!inList) {
+                winners.push(peopleReacted[random]);
+            }
+
+        }
+
+        for (let y = 0; y < winners.length; y++) {
+
+            message.channel.send("Gefeliciteerd: " + `**${winners[y].tag}**` + `Je hebt gewonnen: ${item}`);
+
+        }
+
+    }, time * 1000)
+
 }
 
 module.exports.help = {
-    name: "giveaway",
-    description: "Geeft alle verschillende commands",
-    category: "Informatie"
+    name: "giveaway"
 }
