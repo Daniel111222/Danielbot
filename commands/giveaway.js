@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
 
             inList = false;
 
-            random = Math.floor(Math.radom() * peopleReacted.length);
+            random = Math.floor(Math.random() * peopleReacted.length);
 
             for (let o = 0; o < winners.length; o++) {
 
