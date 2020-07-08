@@ -68,7 +68,7 @@ module.exports.run = async (client, message, args) => {
                 });
 
                 var botEmbed = new discord.MessageEmbed()
-                    .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}**`)
+                    .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}.**`)
                     .setColor("#32a852")
 
                 return message.channel.send(botEmbed);
