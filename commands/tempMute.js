@@ -5,11 +5,11 @@ module.exports.run = async(bot, message, args) => {
 
     // !tempmute persoon tijd (h,m,s)
 
-    if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("sorry jij kan dit niet gebruiken");
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("sorry jij kan dit niet gebruiken");
 
     if (!args[1]) return message.reply("geen gebruiker opgegeven.");
 
-    if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("geen perms");
+    if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.reply("geen perms");
 
     var mutePerson = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
