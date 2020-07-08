@@ -45,6 +45,14 @@ module.exports.run = async (client, message, args) => {
 
     var channel = message.member.guild.channels.cache.get("718769530050183198")
 
+    var embed = new discord.MessageEmbed()
+        .setColor("#ff0000")
+        .setDescription(`**${warnUser} (${warnUser.id}** is succesvol gewarnd door **${message.author}**.`)
+
+    var channel = message.channel.send(botEmbed);
+
+    var channel = message.member.guild.channels.send(botEmbed);
+
     if (!channel) return;
 
     channel.send(embed);
@@ -52,13 +60,13 @@ module.exports.run = async (client, message, args) => {
     if (warns[warnUser.id].warns == 3) {
 
         var embed = new discord.MessageEmbed()
-        .setColor("#ff0000")
-        .setDescription("PAS OP")
-        .addField("Aantal warns", "Je hebt nog een waarschuwing gekregen.");
+            .setColor("#ff0000")
+            .setDescription("PAS OP")
+            .addField("Aantal warns", "Je hebt nog een waarschuwing gekregen.");
 
         message.channel.send(embed)
 
-    }else if(warns[warnUser.id].warns == 4) {
+    } else if (warns[warnUser.id].warns == 4) {
         message.guild.member(warnUser).ban(reason);
         message.channel.send(`${warnUser} is verbannen door de bot wegens te veel warns.`)
     }
