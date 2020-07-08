@@ -52,13 +52,13 @@ module.exports.run = async (client, message, args) => {
     if (warns[warnUser.id].warns == 3) {
 
         var embed = new discord.MessageEmbed()
-        .setColor("#ff0000")
-        .setDescription("PAS OP")
-        .addField("Aantal warns", "Je hebt nog een waarschuwing gekregen.");
+            .setColor("#ff0000")
+            .setDescription("PAS OP")
+            .addField("Aantal warns", "Je hebt nog een waarschuwing gekregen.");
 
         message.channel.send(embed)
 
-    }else if(warns[warnUser.id].warns == 4) {
+    } else if (warns[warnUser.id].warns == 4) {
         message.guild.member(warnUser).ban(reason);
         message.channel.send(`${warnUser} is verbannen door de bot wegens te veel warns.`)
     }
