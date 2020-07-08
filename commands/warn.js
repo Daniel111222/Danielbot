@@ -45,12 +45,6 @@ module.exports.run = async (client, message, args) => {
 
     var channel = message.member.guild.channels.cache.get("718769530050183198")
 
-    var embed = new discord.MessageEmbed()
-        .setColor("#ff0000")
-        .setDescription(`**${warnUser} (${warnUser.id}** is succesvol gewarnd door **${message.author}**.`)
-
-    var channel = message.channel.send(botEmbed);
-
     var channel = message.member.guild.channels.send(botEmbed);
 
     if (!channel) return;
