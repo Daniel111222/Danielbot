@@ -68,10 +68,10 @@ module.exports.run = async (client, message, args) => {
                 });
 
                 var botEmbed = new discord.MessageEmbed()
-                .setTitle(`${kickUser} is succesvol gekickd door ${message.author}.`)
-                .setColor("#32a852")
-            
-            return message.channel.send(botEmbed);
+                    .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}**`)
+                    .setColor("#32a852")
+
+                return message.channel.send(botEmbed);
 
             } else {
                 message.reply("Geannuleerd");
