@@ -79,7 +79,7 @@ module.exports.run = async (client, message, args) => {
                     .addField("server", "Daniël bot")
                     .addField("Reden", `${reason}`)
 
-                    kickUser.send(priveEmbed);
+                    message.channel.send(priveEmbed);
             
             
                 } catch (error) {
