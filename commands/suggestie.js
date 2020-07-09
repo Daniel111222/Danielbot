@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   if (!suggestie) return message.channel.send("Geen suggestie meegegeven gelieve een suggestie mee te geven.");
 
   // Maak het embed aan.
-  var suggestieEmbed = new discord.RichEmbed()
+  var suggestieEmbed = new discord.MessageEmbed()
     .setTitle("Nieuwe suggestie")
     .setColor("#00ff00")
     .addFields(
