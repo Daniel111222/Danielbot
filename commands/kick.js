@@ -77,7 +77,6 @@ module.exports.run = async (client, message, args) => {
                     .setTimestamp()
                     .addField(
                         { name: "Moderator", value: ` ${message.autor} `},
-                        { name: "Gebruiker", value: ` ${kickUser} `},
                         { name: "Server", value: "Daniël bot"},
                         { name: "Reden", value: ` ${reason} `}
                     );
