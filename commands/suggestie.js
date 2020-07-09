@@ -11,9 +11,7 @@ module.exports.run = async (bot, message, args) => {
     // Maak het embed aan.
     var suggestieEmbed = new discord.RichEmbed()
         .setTitle("Nieuwe suggestie")
-        .setColor("#00FF00")
-        // .addField("suggestie: ", suggestie)
-        // .addField("Ingezonden door: ", message.author);
+        .setColor("#00ff00")
         .addFields(
           { name: "suggestie:", value: suggestie},
           { name: "Ingezonden door:", value: `${message.author}`}
