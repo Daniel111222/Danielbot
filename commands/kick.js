@@ -77,7 +77,7 @@ module.exports.run = async (client, message, args) => {
                     .setTimestamp()
                     .addField("Moderator:", `${message.author}`)
                     .addField("server", "Daniël bot")
-                    .addField("Reden", `${reason}`)
+                    .addField("Reden", `${reason}`);
 
                     kickUser.send(priveEmbed);
             
