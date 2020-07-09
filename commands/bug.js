@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
   var bugChannel = message.member.guild.channels.cache.get("718765810625282058")
   if (!bugChannel) return message.guild.send("Kan het kanaal niet vinden");
 
-  suggestieChannel.send(suggestieEmbed)
+  banChannel.send(suggestieEmbed)
 
   // Einde.
 
