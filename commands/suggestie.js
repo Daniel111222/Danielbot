@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     )
 
   // Vind het kanaal.
-  var suggestieChannel = message.guild.channels.find("id", "718765875104055377");
+  var suggestieChannel = message.member.guild.channels.cache.get("718765875104055377")
   if (!suggestieChannel) return message.guild.send("Kan het kanaal niet vinden");
 
   // Verzend het bericht en voeg er reacties aan toe.
