@@ -75,9 +75,10 @@ module.exports.run = async (client, message, args) => {
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
-                    .addField("Moderator:", `${message.author}`)
-                    .addField("server", "Daniël bot")
-                    .addField("Reden", `${reason}`)
+                    .setDescription(`Moderator: ${message.author} 
+                    Gebruiker: ${kickUser}
+                    Server: Daniël bot
+                    Reden: ${reason}`)
 
                     message.channel.send(priveEmbed);
             
