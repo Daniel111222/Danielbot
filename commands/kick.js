@@ -37,6 +37,22 @@ module.exports.run = async (client, message, args) => {
         **Gekickt door:** ${message.author}
         **Redenen: ** ${reason}`);
 
+    var reportEmbed = new discord.MessageEmbed()
+        .setDescription("Reports")
+        .setColor("ff0000")
+        .addField("Reported gebruiker", `${user} Door staff op deze Server.  ${message.guild.name}`)
+        .addField("Report door", `${message.author} op de Server  ${message.guild.name}`)
+        .addField("Reden", reason)
+        .setFooter(message.createdAt);
+
+    var channelReport = message.guild.channels.cache.find(ch => ch.name === "reportchannel");
+    if (!channelReport) return message.channel.send("Kan het kanaal niet vinden");
+
+    // ZORG VOOR ADMINISTRATOR RECHTEN OP BOT.
+    message.delete();
+    user.send(reportEmbed);
+
+
     message.channel.send(embedPrompt).then(async msg => {
 
         // var emoji = await promptMessage(msg, message.author, 30, ["✅", "❌"]);

@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
     bugChannel.send(bugEmbed)
 
     var botEmbed = new discord.MessageEmbed()
-        .setTitle(`${message.author}, je but is succesvol naar het bug kanaal gestuurd`)
+        .setTitle(`${message.author}, Je but is succesvol naar het bug kanaal gestuurd`)
         .setColor("#1ac91a")
 
     return message.channel.send(botEmbed);
