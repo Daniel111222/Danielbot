@@ -12,8 +12,12 @@ module.exports.run = async (bot, message, args) => {
     var suggestieEmbed = new discord.RichEmbed()
         .setTitle("Nieuwe suggestie")
         .setColor("#00FF00")
-        .addField("suggestie: ", suggestie)
-        .addField("Ingezonden door: ", message.author);
+        // .addField("suggestie: ", suggestie)
+        // .addField("Ingezonden door: ", message.author);
+        .addFields(
+          { name: "suggestie:", value: suggestie},
+          { name: "Ingezonden door:", value: `${message.author}`}
+      )
  
     // Vind het kanaal.
     var suggestieChannel = message.guild.channels.find("id", "718765875104055377");
