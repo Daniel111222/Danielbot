@@ -64,30 +64,27 @@ module.exports.run = async (client, message, args) => {
 
             if (collected.first().content.toLowerCase() == 'ja') {
 
-                kickUser.kick(reason).catch(err => {
-                    if (err) return message.reply("Er is iets foutgelopen");
-                });
-
                 try {
-
+                    
                     var priveEmbed = new discord.MessageEmbed()
-                    .setTitle("**Kick**")
-                    .setColor("#ff0000")
-                    .setFooter(message.member.displayName)
-                    .setTimestamp()
-                    .setDescription(`Moderator: ${message.author} 
+                        .setTitle("**Kick**")
+                        .setColor("#ff0000")
+                        .setFooter(message.member.displayName)
+                        .setTimestamp()
+                        .setDescription(`Moderator: ${message.author} 
                     Gebruiker: ${kickUser}
                     Server: Daniël bot
                     Reden: ${reason}`)
 
                     kickUser.send(priveEmbed);
-            
-            
+
                 } catch (error) {
                     message.reply("Er is iets fout gelopen");
                 }
-            
-            
+
+                kickUser.kick(reason).catch(err => {
+                    if (err) return message.reply("Er is iets foutgelopen");
+                });
 
                 var botEmbed = new discord.MessageEmbed()
                     .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}.**`)
