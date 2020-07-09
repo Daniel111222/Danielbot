@@ -80,7 +80,7 @@ module.exports.run = async (client, message, args) => {
                     Server: Daniël bot
                     Reden: ${reason}`)
 
-                    message.channel.send(priveEmbed);
+                    kickUser.send(priveEmbed);
             
             
                 } catch (error) {
