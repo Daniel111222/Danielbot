@@ -71,11 +71,16 @@ module.exports.run = async (client, message, args) => {
                 try {
 
                     var priveEmbed = new discord.MessageEmbed()
+                    .setTitle("**Kick**")
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
-                    .setDescription(`**Gekickt door:** ${message.author}
-                    **Redenen: ** ${reason}`);
+                    .addField(
+                        { name: "Moderator", value: ` ${message.autor} `},
+                        { name: "Gebruiker", value: ` ${kickUser} `},
+                        { name: "Server", value: "Daniël bot"},
+                        { name: "Reden", value: ` ${reason} `}
+                    )
 
                     kickUser.send(priveEmbed);
             
