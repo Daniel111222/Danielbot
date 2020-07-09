@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     // Maak het embed aan.
     var bugEmbed = new discord.MessageEmbed()
         .setTitle("Nieuwe bug:")
-        .setColor("#00ff00")
+        .setColor("#ff0008")
         .addFields(
             { name: "bug:", value: bug },
             { name: "Ingezonden door:", value: `${message.author}` }
@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle("Je bug is succesvol naar het bug kanaal gestuurd!")
-        .setColor("#1ac91a")
+        .setColor("#00ff00")
 
     return message.channel.send(botEmbed);
 

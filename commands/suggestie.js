@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args) => {
   // Kijk na als er een suggestie is meegegeven.
   if (!suggestie) return message.channel.send("Geen suggestie meegegeven gelieve een suggestie mee te geven.");
 
+
   // Maak het embed aan.
   var suggestieEmbed = new discord.MessageEmbed()
     .setTitle("Nieuwe suggestie")
@@ -27,7 +28,12 @@ module.exports.run = async (bot, message, args) => {
     embedMessage.react('👎');
   });
 
-  // Einde.
+  //Stuur een bevestigings bericht
+  var botEmbed = new discord.MessageEmbed()
+    .setTitle("Je suggestie is succesvol naar het suggestie kanaal gestuurd!")
+    .setColor("#00ff00")
+
+  return message.channel.send(botEmbed);
 
 }
 
