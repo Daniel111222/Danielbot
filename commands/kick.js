@@ -80,7 +80,7 @@ module.exports.run = async (client, message, args) => {
                         { name: "Gebruiker", value: ` ${kickUser} `},
                         { name: "Server", value: "Daniël bot"},
                         { name: "Reden", value: ` ${reason} `}
-                    )
+                    );
 
                     kickUser.send(priveEmbed);
             
