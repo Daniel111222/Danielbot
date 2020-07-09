@@ -70,7 +70,7 @@ module.exports.run = async (client, message, args) => {
 
                 try {
 
-                    var embed = new discord.MessageEmbed()
+                    var priveEmbed = new discord.MessageEmbed()
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
@@ -78,7 +78,7 @@ module.exports.run = async (client, message, args) => {
                     **Gekickt door:** ${message.author}
                     **Redenen: ** ${reason}`);
 
-                    kickUser.send(embed);
+                    kickUser.send(priveEmbed);
             
             
                 } catch (error) {
