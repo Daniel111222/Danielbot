@@ -63,44 +63,29 @@ module.exports.run = async (client, message, args) => {
         message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(collected => {
 
             if (collected.first().content.toLowerCase() == 'ja') {
-
-                try {
-                    
-                    var priveEmbed = new discord.MessageEmbed()
-                        .setTitle("**Kick**")
-                        .setColor("#ff0000")
-                        .setFooter(message.member.displayName)
-                        .setTimestamp()
-                        .setDescription(`Moderator: ${message.author} 
+                var priveEmbed = new discord.MessageEmbed()
+                    .setTitle("**Kick**")
+                    .setColor("#ff0000")
+                    .setFooter(message.member.displayName)
+                    .setTimestamp()
+                    .setDescription(`Moderator: ${message.author} 
                     Gebruiker: ${kickUser}
                     Server: Daniël bot
                     Reden: ${reason}`)
-
-                    kickUser.send(priveEmbed);
-
-                } catch (error) {
-                    message.reply("Er is iets fout gelopen");
-                }
-
-                kickUser.kick(reason).catch(err => {
-                    if (err) return message.reply("Er is iets foutgelopen");
+                kickUser.send(priveEmbed).then(err => console.log(err)).then(() => {
+                    kickUser.kick(reason).catch(err => {
+                        if (err) return message.reply("Er is iets foutgelopen");
+                    });
+                    var botEmbed = new discord.MessageEmbed()
+                        .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}.**`)
+                        .setColor("#32a852")
+                    return message.channel.send(botEmbed);
                 });
-
-                var botEmbed = new discord.MessageEmbed()
-                    .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}.**`)
-                    .setColor("#32a852")
-
-                return message.channel.send(botEmbed);
-
             } else {
                 message.reply("Geannuleerd");
-
             }
-
         });
-
     })
-
 }
 
 module.exports.help = {
