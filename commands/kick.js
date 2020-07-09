@@ -74,8 +74,7 @@ module.exports.run = async (client, message, args) => {
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
-                    .setDescription(`**Gekickt: ** ${kickUser} (${kickUser.id})
-                    **Gekickt door:** ${message.author}
+                    .setDescription(`**Gekickt door:** ${message.author}
                     **Redenen: ** ${reason}`);
 
                     kickUser.send(priveEmbed);
