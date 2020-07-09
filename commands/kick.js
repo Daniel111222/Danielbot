@@ -78,7 +78,7 @@ module.exports.run = async (client, message, args) => {
                     **Gekickt door:** ${message.author}
                     **Redenen: ** ${reason}`);
 
-                    message.author.send(embed);
+                    message.kickUser.send(embed);
             
             
                 } catch (error) {
