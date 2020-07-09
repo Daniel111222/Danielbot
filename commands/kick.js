@@ -75,11 +75,9 @@ module.exports.run = async (client, message, args) => {
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
-                    .addField(
-                        { name: "Moderator", value: ` ${message.autor} `},
-                        { name: "Server", value: "Daniël bot"},
-                        { name: "Reden", value: ` ${reason} `}
-                    );
+                    .addField("Moderator:", `${message.author}`)
+                    .addField("server", "Daniël bot")
+                    .addField("Reden", `${reason}`)
 
                     kickUser.send(priveEmbed);
             
