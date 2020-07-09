@@ -68,10 +68,10 @@ module.exports.run = async (client, message, args) => {
                     .setColor("#ff0000")
                     .setFooter(message.member.displayName)
                     .setTimestamp()
-                    .setDescription(`Moderator: ${message.author} 
-                    Gebruiker: ${kickUser}
-                    Server: Daniël bot
-                    Reden: ${reason}`)
+                    .setDescription(`**Moderator:** ${message.author} 
+                    **Gebruiker:** ${kickUser}
+                    **Server:** Daniël bot
+                    **Reden:** ${reason}`)
                 kickUser.send(priveEmbed).then(err => console.log(err)).then(() => {
                     kickUser.kick(reason).catch(err => {
                         if (err) return message.reply("Er is iets foutgelopen");
