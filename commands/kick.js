@@ -37,21 +37,6 @@ module.exports.run = async (client, message, args) => {
         **Gekickt door:** ${message.author}
         **Redenen: ** ${reason}`);
 
-    // var reportEmbed = new discord.MessageEmbed()
-    //     .setDescription("Reports")
-    //     .setColor("ff0000")
-    //     .addField("Reported gebruiker", `${user} Door staff op deze Server.  ${message.guild.name}`)
-    //     .addField("Report door", `${message.author} op de Server  ${message.guild.name}`)
-    //     .addField("Reden", reason)
-    //     .setFooter(message.createdAt);
-
-    // var channelReport = message.guild.channels.cache.find(ch => ch.name === "reportchannel");
-    // if (!channelReport) return message.channel.send("Kan het kanaal niet vinden");
-
-    // ZORG VOOR ADMINISTRATOR RECHTEN OP BOT.
-    // message.delete();
-    // user.send(reportEmbed);
-
 
     message.channel.send(embedPrompt).then(async msg => {
 
@@ -82,6 +67,25 @@ module.exports.run = async (client, message, args) => {
                 kickUser.kick(reason).catch(err => {
                     if (err) return message.reply("Er is iets foutgelopen");
                 });
+
+                try {
+
+                    var embed = new discord.MessageEmbed()
+                    .setColor("#ff0000")
+                    .setFooter(message.member.displayName)
+                    .setTimestamp()
+                    .setDescription(`**Gekickt: ** ${kickUser} (${kickUser.id})
+                    **Gekickt door:** ${message.author}
+                    **Redenen: ** ${reason}`);
+
+                    message.author.send(text);
+            
+            
+                } catch (error) {
+                    message.reply("Er is iets fout gelopen");
+                }
+            
+            
 
                 var botEmbed = new discord.MessageEmbed()
                     .setDescription(`**${kickUser} (${kickUser.id})** is succesvol gekickd door **${message.author}.**`)
